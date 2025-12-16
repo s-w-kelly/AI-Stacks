@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "December 2024";
+export const lastUpdated = "December 2025";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS (probably won't change often)
@@ -28,9 +28,11 @@ export const stackLayers = [
 export const infrastructureProviders = [
   { id: 'nvidia', name: 'NVIDIA', color: '#76B900', type: 'chips' },
   { id: 'amazon', name: 'Amazon (AWS)', color: '#FF9900', type: 'cloud' },
-  { id: 'microsoft', name: 'Microsoft (Azure)', color: '#00A4EF', type: 'cloud' },
-  { id: 'oracle', name: 'Oracle', color: '#F80000', type: 'cloud' },
-  { id: 'coreweave', name: 'CoreWeave', color: '#6366F1', type: 'neocloud' },
+  { id: 'microsoft', name: 'Microsoft (Azure)', color: '#3CCBF4', type: 'cloud' },
+  { id: 'oracle', name: 'Oracle', color: '#C74634', type: 'cloud' },
+  { id: 'coreweave', name: 'CoreWeave', color: '#2741E7', type: 'neocloud' },
+  { id: 'crusoe', name: 'Crusoe', color: '#1D1D1F', type: 'neocloud' },
+
   // Add more as needed:
   // { id: 'crusoe', name: 'Crusoe', color: '#...', type: 'neocloud' },
   // { id: 'nebius', name: 'Nebius', color: '#...', type: 'neocloud' },
@@ -52,65 +54,28 @@ export const infrastructureProviders = [
 //   - dependencies: array of provider IDs (only if inHouse is false)
 // -----------------------------------------------------------------------------
 export const companies = [
-  {
-    id: 'google',
-    name: 'Google DeepMind',
-    color: '#4285F4',
-    stack: {
-      applications: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['Gemini App', 'Search AI', 'Workspace AI'] 
-      },
-      api: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['Vertex AI', 'Gemini API'] 
-      },
-      models: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['Gemini 2.0', 'Gemini 1.5', 'Gemma'] 
-      },
-      training: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['TPU Pods'] 
-      },
-      cloud: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['Google Cloud'] 
-      },
-      chips: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['TPU v5p', 'Trillium'] 
-      },
-    }
-  },
-  {
+ {
     id: 'anthropic',
     name: 'Anthropic',
-    color: '#D4A574',
+    color: '#da7756',
     stack: {
       applications: { 
         provider: 'Anthropic', 
         inHouse: true, 
-        products: ['Claude.ai', 'Claude for Enterprise'] 
+        products: ['Claude.ai', 'Claude Code'] 
       },
       api: { 
         provider: 'Anthropic', 
         inHouse: true, 
-        products: ['Claude API', 'Amazon Bedrock', 'Vertex AI'] 
+        products: ['Claude API', 'Amazon Bedrock', 'Google Vertex AI', 'Microsoft Azure AI'] 
       },
       models: { 
         provider: 'Anthropic', 
         inHouse: true, 
-        products: ['Claude 3.5 Sonnet', 'Claude 3.5 Haiku', 'Claude 3 Opus'] 
+        products: ['Claude'] 
       },
       training: { 
-        provider: 'AWS + GCP', 
+        provider: 'AWS + Google Cloud', 
         inHouse: false, 
         products: ['AWS Trainium', 'Google TPU'], 
         dependencies: ['amazon', 'google'] 
@@ -122,57 +87,54 @@ export const companies = [
         dependencies: ['amazon', 'google'] 
       },
       chips: { 
-        provider: 'NVIDIA + Google + AWS', 
+        provider: 'AWS + Google + NVIDIA', 
         inHouse: false, 
-        products: ['H100', 'TPU', 'Trainium'], 
-        dependencies: ['nvidia', 'google', 'amazon'] 
+        products: ['Amazon Trainium', 'Google TPUs', 'NVIDIA GPUs'], 
+        dependencies: ['amazon', 'google', 'nvidia'] 
       },
     }
   },
   {
-    id: 'openai',
-    name: 'OpenAI',
-    color: '#10A37F',
+    id: 'google',
+    name: 'Google DeepMind',
+    color: '#3369E8',
     stack: {
       applications: { 
-        provider: 'OpenAI', 
+        provider: 'Google', 
         inHouse: true, 
-        products: ['ChatGPT', 'DALL-E', 'Sora'] 
+        products: ['Gemini app', 'Google AI Studio', 'Google Antigravity', 'Google NotebookLM'] 
       },
       api: { 
-        provider: 'OpenAI', 
+        provider: 'Google', 
         inHouse: true, 
-        products: ['OpenAI API', 'Azure OpenAI'] 
+        products: ['Vertex AI API', 'Gemini API'] 
       },
       models: { 
-        provider: 'OpenAI', 
+        provider: 'Google', 
         inHouse: true, 
-        products: ['GPT-4o', 'o1', 'o3'] 
+        products: ['Gemini', 'Nano Banana', 'Gemma', 'Veo', 'Imagen', 'Lyria'] 
       },
       training: { 
-        provider: 'Microsoft', 
-        inHouse: false, 
-        products: ['Azure AI Infrastructure'], 
-        dependencies: ['microsoft'] 
+        provider: 'Google', 
+        inHouse: true, 
+        products: ['TPUs'] 
       },
       cloud: { 
-        provider: 'Microsoft', 
-        inHouse: false, 
-        products: ['Microsoft Azure'], 
-        dependencies: ['microsoft'] 
+        provider: 'Google', 
+        inHouse: true, 
+        products: ['Google Cloud'] 
       },
       chips: { 
-        provider: 'NVIDIA', 
-        inHouse: false, 
-        products: ['H100', 'GB200'], 
-        dependencies: ['nvidia'] 
+        provider: 'Google', 
+        inHouse: true, 
+        products: ['TPUs'] 
       },
     }
   },
   {
     id: 'meta',
     name: 'Meta AI',
-    color: '#0668E1',
+    color: '#0081FB',
     stack: {
       applications: { 
         provider: 'Meta', 
@@ -187,23 +149,64 @@ export const companies = [
       models: { 
         provider: 'Meta', 
         inHouse: true, 
-        products: ['Llama 3.3', 'Llama 3.2', 'Llama 3.1 405B'] 
+        products: ['Llama'] 
       },
       training: { 
         provider: 'Meta', 
         inHouse: true, 
-        products: ['Research SuperCluster', 'AI Research SuperCluster'] 
+        products: ['Meta Data Centers'] 
       },
       cloud: { 
-        provider: 'Meta', 
-        inHouse: true, 
-        products: ['Meta Data Centers'] 
+        provider: 'Google Cloud', 'Microsoft', 
+        inHouse: false, 
+        products: ['Google Cloud', 'Microsoft Azure'] 
+        dependencies: ['google', 'microsoft'] 
       },
       chips: { 
         provider: 'NVIDIA', 
         inHouse: false, 
-        products: ['H100 clusters (600k+)'], 
+        products: ['NVIDIA GPUs'], 
         dependencies: ['nvidia'] 
+      },
+    }
+  },
+  {
+    id: 'openai',
+    name: 'OpenAI',
+    color: '#74AA9C',
+    stack: {
+      applications: { 
+        provider: 'OpenAI', 
+        inHouse: true, 
+        products: ['ChatGPT', 'Sora'] 
+      },
+      api: { 
+        provider: 'OpenAI', 
+        inHouse: true, 
+        products: ['OpenAI API', 'Azure OpenAI'] 
+      },
+      models: { 
+        provider: 'OpenAI', 
+        inHouse: true, 
+        products: ['GPT', 'Sora'] 
+      },
+      training: { 
+        provider: 'Mixed',
+        inHouse: false, 
+        products: ['Azure AI Infrastructure', 'Stargate'], 
+        dependencies: ['crusoe', 'microsoft'] 
+      },
+      cloud: { 
+        provider: 'Amazon', 'CoreWeave', 'Google Cloud', 'Microsoft', 'Oracle' 
+        inHouse: false, 
+        products: ['AWS', 'Google Cloud', 'Microsoft Azure', 'Oracle Cloud'], 
+        dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle'] 
+      },
+      chips: { 
+        provider: 'Google', 'NVIDIA', 
+        inHouse: false, 
+        products: ['Google TPUs', 'NVIDIA GPUs'], 
+        dependencies: ['google', 'nvidia'] 
       },
     }
   },
@@ -215,7 +218,7 @@ export const companies = [
       applications: { 
         provider: 'xAI', 
         inHouse: true, 
-        products: ['Grok (via X)'] 
+        products: ['Grok'] 
       },
       api: { 
         provider: 'xAI', 
@@ -225,23 +228,23 @@ export const companies = [
       models: { 
         provider: 'xAI', 
         inHouse: true, 
-        products: ['Grok-2', 'Grok-2 mini'] 
+        products: ['Grok'] 
       },
       training: { 
         provider: 'xAI', 
         inHouse: true, 
-        products: ['Colossus (Memphis)'] 
+        products: ['Colossus data centers'] 
       },
       cloud: { 
-        provider: 'Mixed', 
+        provider: 'Oracle', 
         inHouse: false, 
-        products: ['Oracle Cloud', 'Own facilities'], 
+        products: ['Oracle Cloud Infrastructure'], 
         dependencies: ['oracle'] 
       },
       chips: { 
         provider: 'NVIDIA', 
         inHouse: false, 
-        products: ['H100 (100k+ cluster)'], 
+        products: ['NVIDIA GPUs'], 
         dependencies: ['nvidia'] 
       },
     }
