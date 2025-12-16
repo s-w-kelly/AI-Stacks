@@ -169,7 +169,7 @@ export const companies = [
         provider: 'AMD + NVIDIA', 
         inHouse: false, 
         products: ['AMD GPUs', 'NVIDIA GPUs'], 
-        dependencies: ['AMD', 'nvidia'] 
+        dependencies: ['amd', 'nvidia'] 
       },
     }
   },
@@ -181,7 +181,7 @@ export const companies = [
       applications: { 
         provider: 'OpenAI', 
         inHouse: true, 
-        products: ['ChatGPT', 'Sora'] 
+        products: ['ChatGPT', 'Sora', 'gpt-oss'] 
       },
       api: { 
         provider: 'OpenAI', 
@@ -200,16 +200,16 @@ export const companies = [
         dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle']
       },
       infrastructure: { 
-        provider: 'Microsoft + OpenAI',
+        provider: 'OpenAI + Google + Microsoft',
         inHouse: false, 
-        products: ['Azure AI Infrastructure', 'Stargate (Crusoe)'],
-        dependencies: ['crusoe', 'microsoft'] 
+        products: ['Stargate (Crusoe)', 'Google Cloud', 'Microsoft Azure',],
+        dependencies: ['crusoe', 'google', 'microsoft'] 
       },
       chips: { 
-        provider: 'Google + NVIDIA', 
+        provider: 'Google + NVIDIA + AMD (2026)', 
         inHouse: false, 
-        products: ['Google TPUs', 'NVIDIA GPUs'], 
-        dependencies: ['google', 'nvidia'] 
+        products: ['Google TPUs', 'NVIDIA GPUs', 'AMD GPUs'], 
+        dependencies: ['google', 'nvidia', 'amd'] 
       },
     }
   },
@@ -236,7 +236,7 @@ export const companies = [
       cloud: { 
         provider: 'Oracle', 
         inHouse: false, 
-        products: ['Colossus data centers'],
+        products: ['Oracle Cloud Infrastructure (Colossus)'],
         dependencies: ['oracle'] 
       },
       infrastructure: { 
