@@ -36,12 +36,12 @@ const AIStackVisualization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white p-4 md:p-6">
+    <div className="min-h-screen bg-slate-600 text-white p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">The AI Stack</h1>
-          <p className="text-slate-400">Comparing vertical integration across frontier AI developers</p>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">AI Stack Tracker</h1>
+          <p className="text-slate-400">Monitoring service/infrastructure partnerships and vertical integration across frontier AI developers</p>
           <p className="text-sm text-slate-500 mt-1">
             Click on a company or infrastructure provider to highlight dependencies
           </p>
@@ -50,7 +50,7 @@ const AIStackVisualization = () => {
         {/* Infrastructure Providers */}
         <div className="mb-6">
           <h2 className="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">
-            Key Infrastructure Providers
+            Key Providers
           </h2>
           <div className="flex gap-2 md:gap-3 flex-wrap">
             {infrastructureProviders.map(provider => (
@@ -213,7 +213,7 @@ const AIStackVisualization = () => {
         {/* Footer */}
         <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500">
           <p>Last updated: {lastUpdated}</p>
-          <p className="mt-1">Data compiled from public sources. For corrections or updates, contact [your email/handle].</p>
+          <p className="mt-1">Data compiled from public sources. For corrections or updates, contact sk2585@georgetown.edu.</p>
         </footer>
       </div>
     </div>
