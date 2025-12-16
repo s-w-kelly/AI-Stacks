@@ -1,6 +1,60 @@
 import React, { useState } from 'react';
 import { companies, stackLayers, infrastructureProviders, lastUpdated } from './data.js';
 
+// Helper component for rendering products with optional links
+const ProductList = ({ products }) => {
+  return (
+    <span className="text-xs text-slate-300">
+      {products.map((product, index) => (
+        <span key={product.name}>
+          {product.url ? (
+            <a 
+              href={product.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline decoration-dotted hover:text-white hover:decoration-solid transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {product.name}
+            </a>
+          ) : (
+            <span>{product.name}</span>
+          )}
+          {index < products.length - 1 && ', '}
+        </span>
+      ))}
+    </span>
+  );
+};
+
+// Helper component for rendering provider name with optional link
+const ProviderName = ({ provider, providerUrl, isInHouse, color }) => {
+  const baseStyle = { color: isInHouse ? color : '#94a3b8' };
+  
+  if (providerUrl) {
+    return (
+      <a 
+        href={providerUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-xs font-semibold underline decoration-dotted hover:decoration-solid transition-colors"
+        style={baseStyle}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {provider}
+        {!isInHouse && <span className="ml-1 text-slate-400 no-underline">(ext)</span>}
+      </a>
+    );
+  }
+  
+  return (
+    <div className="text-xs font-semibold" style={baseStyle}>
+      {provider}
+      {!isInHouse && <span className="ml-1 text-slate-400">(ext)</span>}
+    </div>
+  );
+};
+
 const AIStackVisualization = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [selectedProvider, setSelectedProvider] = useState(null);
@@ -36,21 +90,22 @@ const AIStackVisualization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-700 text-white p-4 md:p-6">
+    <div className="min-h-screen bg-slate-900 text-white p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">AI Stack Tracker</h1>
-          <p className="text-slate-400">Monitoring service/infrastructure partnerships and vertical integration across frontier AI developers</p>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">The AI Stack</h1>
+          <p className="text-slate-400">Comparing vertical integration across frontier AI developers</p>
           <p className="text-sm text-slate-500 mt-1">
-            Click on a company or provider to highlight dependencies
+            Click on a company or infrastructure provider to highlight dependencies. 
+            <span className="ml-1 text-slate-400">Dotted underlines indicate source links.</span>
           </p>
         </header>
 
         {/* Infrastructure Providers */}
         <div className="mb-6">
           <h2 className="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">
-            Key Providers
+            Key Infrastructure Providers
           </h2>
           <div className="flex gap-2 md:gap-3 flex-wrap">
             {infrastructureProviders.map(provider => (
@@ -138,15 +193,14 @@ const AIStackVisualization = () => {
                         opacity: getOpacity(company, layer)
                       }}
                     >
-                      <div 
-                        className="text-xs font-semibold mb-1" 
-                        style={{ color: isInHouse ? company.color : '#94a3b8' }}
-                      >
-                        {layerData.provider}
-                        {!isInHouse && <span className="ml-1 text-slate-400">(ext)</span>}
-                      </div>
-                      <div className="text-xs text-slate-300 line-clamp-2">
-                        {layerData.products.join(', ')}
+                      <ProviderName 
+                        provider={layerData.provider}
+                        providerUrl={layerData.providerUrl}
+                        isInHouse={isInHouse}
+                        color={company.color}
+                      />
+                      <div className="mt-1 line-clamp-2">
+                        <ProductList products={layerData.products} />
                       </div>
                     </div>
                   );
@@ -157,7 +211,7 @@ const AIStackVisualization = () => {
         </div>
 
         {/* Legend */}
-        <div className="mt-4 md:mt-6 flex gap-4 md:gap-6 text-xs md:text-sm">
+        <div className="mt-4 md:mt-6 flex flex-wrap gap-4 md:gap-6 text-xs md:text-sm">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-blue-500/30 border-l-2 border-blue-500"></div>
             <span className="text-slate-400">In-house capability</span>
@@ -165,6 +219,10 @@ const AIStackVisualization = () => {
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-slate-600 border-l-2 border-slate-400"></div>
             <span className="text-slate-400">External dependency</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-slate-300 underline decoration-dotted">dotted underline</span>
+            <span className="text-slate-400">= source link</span>
           </div>
         </div>
 
@@ -213,7 +271,7 @@ const AIStackVisualization = () => {
         {/* Footer */}
         <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500">
           <p>Last updated: {lastUpdated}</p>
-          <p className="mt-1">Data compiled from public sources. For corrections or updates, contact sk2585@georgetown.edu.</p>
+          <p className="mt-1">Data compiled from public sources. Dotted underlines link to primary sources.</p>
         </footer>
       </div>
     </div>
