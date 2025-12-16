@@ -157,10 +157,10 @@ export const companies = [
         products: ['Meta Data Centers'] 
       },
       cloud: { 
-        provider: 'Google Cloud', 'Microsoft', 
+        provider: 'Google Cloud',
         inHouse: false, 
-        products: ['Google Cloud', 'Microsoft Azure'] 
-        dependencies: ['google', 'microsoft'] 
+        products: ['Google Cloud'],
+        dependencies: ['google',] 
       },
       chips: { 
         provider: 'NVIDIA', 
@@ -197,13 +197,13 @@ export const companies = [
         dependencies: ['crusoe', 'microsoft'] 
       },
       cloud: { 
-        provider: 'Amazon', 'CoreWeave', 'Google Cloud', 'Microsoft', 'Oracle' 
+        provider: 'Amazon + CoreWeave + Google + Microsoft + Oracle',
         inHouse: false, 
-        products: ['AWS', 'Google Cloud', 'Microsoft Azure', 'Oracle Cloud'], 
+        products: ['AWS', 'CoreWeave', 'Google Cloud', 'Microsoft Azure', 'Oracle Cloud'], 
         dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle'] 
       },
       chips: { 
-        provider: 'Google', 'NVIDIA', 
+        provider: 'Google + NVIDIA', 
         inHouse: false, 
         products: ['Google TPUs', 'NVIDIA GPUs'], 
         dependencies: ['google', 'nvidia'] 
