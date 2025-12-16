@@ -90,14 +90,14 @@ const AIStackVisualization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white p-4 md:p-6">
+    <div className="min-h-screen bg-slate-700 text-white p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">The AI Stack</h1>
-          <p className="text-slate-400">Comparing vertical integration across frontier AI developers</p>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">AI Stack Tracker</h1>
+          <p className="text-slate-400">Monitoring service/infrastructure partnerships and vertical integration across frontier AI developers</p>
           <p className="text-sm text-slate-500 mt-1">
-            Click on a company or infrastructure provider to highlight dependencies. 
+            Click on a company or provider to highlight dependencies
             <span className="ml-1 text-slate-400">Dotted underlines indicate source links.</span>
           </p>
         </header>
@@ -105,7 +105,7 @@ const AIStackVisualization = () => {
         {/* Infrastructure Providers */}
         <div className="mb-6">
           <h2 className="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">
-            Key Infrastructure Providers
+            Key Providers
           </h2>
           <div className="flex gap-2 md:gap-3 flex-wrap">
             {infrastructureProviders.map(provider => (
@@ -211,7 +211,7 @@ const AIStackVisualization = () => {
         </div>
 
         {/* Legend */}
-        <div className="mt-4 md:mt-6 flex flex-wrap gap-4 md:gap-6 text-xs md:text-sm">
+        <div className="mt-4 md:mt-6 flex gap-4 md:gap-6 text-xs md:text-sm">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-blue-500/30 border-l-2 border-blue-500"></div>
             <span className="text-slate-400">In-house capability</span>
@@ -271,7 +271,7 @@ const AIStackVisualization = () => {
         {/* Footer */}
         <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500">
           <p>Last updated: {lastUpdated}</p>
-          <p className="mt-1">Data compiled from public sources. Dotted underlines link to primary sources.</p>
+          <p className="mt-1">Data compiled from public sources.</p>
         </footer>
       </div>
     </div>
