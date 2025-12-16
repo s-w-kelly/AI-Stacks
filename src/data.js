@@ -11,12 +11,12 @@ export const lastUpdated = "December 2025";
 // STACK LAYERS (probably won't change often)
 // -----------------------------------------------------------------------------
 export const stackLayers = [
-  { id: 'applications', name: 'Applications', description: 'Consumer & enterprise products' },
-  { id: 'api', name: 'API / Platform', description: 'Developer access & tooling' },
+  { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products' },
+  { id: 'api', name: 'APIs', description: 'Developer access and tooling' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'training', name: 'Training Infrastructure', description: 'Compute for training runs' },
-  { id: 'cloud', name: 'Cloud / Data Centers', description: 'Physical infrastructure' },
-  { id: 'chips', name: 'Chips / Hardware', description: 'AI accelerators' },
+  { id: 'cloud', name: 'Cloud Providers', description: 'Cloud provision/data center ops' },
+  { id: 'infrastructure', name: 'Data Centers', description: 'Physical infrastructure' },
+  { id: 'chips', name: 'Chips', description: 'AI accelerators' },
 ];
 
 // -----------------------------------------------------------------------------
@@ -26,12 +26,14 @@ export const stackLayers = [
 // The 'type' field is for potential future filtering (chips vs cloud vs neocloud).
 // -----------------------------------------------------------------------------
 export const infrastructureProviders = [
-  { id: 'nvidia', name: 'NVIDIA', color: '#76B900', type: 'chips' },
+  { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips' },
+  { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
+  { id: 'google', name: 'Google (Cloud, TPUs)', color: '#4285F4', type: 'chips' },
   { id: 'amazon', name: 'Amazon (AWS)', color: '#FF9900', type: 'cloud' },
   { id: 'microsoft', name: 'Microsoft (Azure)', color: '#3CCBF4', type: 'cloud' },
-  { id: 'oracle', name: 'Oracle', color: '#C74634', type: 'cloud' },
-  { id: 'coreweave', name: 'CoreWeave', color: '#2741E7', type: 'neocloud' },
-  { id: 'crusoe', name: 'Crusoe', color: '#1D1D1F', type: 'neocloud' },
+  { id: 'oracle', name: 'Oracle (OCI)', color: '#C74634', type: 'cloud' },
+  { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud' },
+  { id: 'crusoe', name: 'Crusoe (data centers)', color: '#ceeb13', type: 'neocloud' },
 
   // Add more as needed:
   // { id: 'crusoe', name: 'Crusoe', color: '#...', type: 'neocloud' },
@@ -74,22 +76,22 @@ export const companies = [
         inHouse: true, 
         products: ['Claude'] 
       },
-      training: { 
-        provider: 'AWS + Google Cloud', 
+      cloud: { 
+        provider: 'Amazon + Google', 
         inHouse: false, 
-        products: ['AWS Trainium', 'Google TPU'], 
+        products: ['AWS', 'Google Cloud'], 
         dependencies: ['amazon', 'google'] 
       },
-      cloud: { 
-        provider: 'AWS + GCP', 
+      infrastructure: { 
+        provider: 'Amazon + Google', 
         inHouse: false, 
-        products: ['Amazon Web Services', 'Google Cloud'], 
+        products: ['AWS', 'Google Cloud'], 
         dependencies: ['amazon', 'google'] 
       },
       chips: { 
-        provider: 'AWS + Google + NVIDIA', 
+        provider: 'Amazon + Google + NVIDIA', 
         inHouse: false, 
-        products: ['Amazon Trainium', 'Google TPUs', 'NVIDIA GPUs'], 
+        products: ['AWS Trainium', 'Google TPUs', 'NVIDIA GPUs'], 
         dependencies: ['amazon', 'google', 'nvidia'] 
       },
     }
@@ -114,20 +116,20 @@ export const companies = [
         inHouse: true, 
         products: ['Gemini', 'Nano Banana', 'Gemma', 'Veo', 'Imagen', 'Lyria'] 
       },
-      training: { 
-        provider: 'Google', 
-        inHouse: true, 
-        products: ['TPUs'] 
-      },
       cloud: { 
         provider: 'Google', 
         inHouse: true, 
         products: ['Google Cloud'] 
       },
+      infrastructure: { 
+        provider: 'Google', 
+        inHouse: true, 
+        products: ['Google Cloud data centers'] 
+      },
       chips: { 
         provider: 'Google', 
         inHouse: true, 
-        products: ['TPUs'] 
+        products: ['Google TPUs'] 
       },
     }
   },
@@ -139,34 +141,35 @@ export const companies = [
       applications: { 
         provider: 'Meta', 
         inHouse: true, 
-        products: ['Meta AI', 'Instagram AI', 'WhatsApp AI'] 
+        products: ['Meta AI'] 
       },
       api: { 
         provider: 'Meta', 
         inHouse: true, 
-        products: ['Llama API', 'Open weights distribution'] 
+        products: ['Llama API', 'Amazon Bedrock', 'Open weights distribution'] 
       },
       models: { 
         provider: 'Meta', 
         inHouse: true, 
         products: ['Llama'] 
       },
-      training: { 
-        provider: 'Meta', 
-        inHouse: true, 
-        products: ['Meta Data Centers'] 
-      },
       cloud: { 
-        provider: 'Google Cloud',
+        provider: 'Amazon + CoreWeave + Google + Microsoft',
         inHouse: false, 
-        products: ['Google Cloud'],
-        dependencies: ['google',] 
+        products: ['AWS', 'CoreWeave', 'Google Cloud', 'Microsoft Azure'],
+        dependencies: ['amazon', 'google', 'microsoft'] 
+      },
+      infrastructure: { 
+        provider: 'Meta + CoreWeave + Amazon', 
+        inHouse: true, 
+        products: ['Meta Data Centers', 'AWS', 'CoreWeave', 'Microsoft Azure'],
+        dependencies: ['amazon', 'coreweave', 'microsoft'] 
       },
       chips: { 
-        provider: 'NVIDIA', 
+        provider: 'AMD + NVIDIA', 
         inHouse: false, 
-        products: ['NVIDIA GPUs'], 
-        dependencies: ['nvidia'] 
+        products: ['AMD GPUs', 'NVIDIA GPUs'], 
+        dependencies: ['AMD', 'nvidia'] 
       },
     }
   },
@@ -190,17 +193,17 @@ export const companies = [
         inHouse: true, 
         products: ['GPT', 'Sora'] 
       },
-      training: { 
-        provider: 'Mixed',
-        inHouse: false, 
-        products: ['Azure AI Infrastructure', 'Stargate'], 
-        dependencies: ['crusoe', 'microsoft'] 
-      },
       cloud: { 
         provider: 'Amazon + CoreWeave + Google + Microsoft + Oracle',
         inHouse: false, 
-        products: ['AWS', 'CoreWeave', 'Google Cloud', 'Microsoft Azure', 'Oracle Cloud'], 
-        dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle'] 
+        products: ['AWS', 'CoreWeave', 'Google Cloud', 'Microsoft Azure', 'Oracle Cloud Infrastructure (Stargate)'],
+        dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle']
+      },
+      infrastructure: { 
+        provider: 'Microsoft + OpenAI',
+        inHouse: false, 
+        products: ['Azure AI Infrastructure', 'Stargate (Crusoe)'],
+        dependencies: ['crusoe', 'microsoft'] 
       },
       chips: { 
         provider: 'Google + NVIDIA', 
@@ -213,7 +216,7 @@ export const companies = [
   {
     id: 'xai',
     name: 'xAI',
-    color: '#1D1D1F',
+    color: '#000000',
     stack: {
       applications: { 
         provider: 'xAI', 
@@ -230,16 +233,16 @@ export const companies = [
         inHouse: true, 
         products: ['Grok'] 
       },
-      training: { 
-        provider: 'xAI', 
-        inHouse: true, 
-        products: ['Colossus data centers'] 
-      },
       cloud: { 
         provider: 'Oracle', 
         inHouse: false, 
-        products: ['Oracle Cloud Infrastructure'], 
+        products: ['Colossus data centers'],
         dependencies: ['oracle'] 
+      },
+      infrastructure: { 
+        provider: 'xAI', 
+        inHouse: true, 
+        products: ['Colossus data centers']
       },
       chips: { 
         provider: 'NVIDIA', 
