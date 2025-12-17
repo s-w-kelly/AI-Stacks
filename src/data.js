@@ -12,7 +12,7 @@ export const lastUpdated = "December 2025";
 // -----------------------------------------------------------------------------
 export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products' },
-  { id: 'api', name: 'APIs', description: 'Developer access and tooling' },
+  { id: 'api', name: 'APIs / Weights Access', description: 'Developer access and tooling' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
   { id: 'cloud', name: 'Cloud Providers', description: 'Cloud provision/data center ops' },
   { id: 'infrastructure', name: 'Data Centers', description: 'Physical infrastructure' },
@@ -151,7 +151,8 @@ export const companies = [
         products: [
           p('Gemini API', 'https://ai.google.dev/gemini-api/docs'),
           p('Vertex AI API', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
-        ] 
+          p('Open weights distribution', 'https://huggingface.co/collections/google/gemma-3-release'),
+        ]
       },
       models: { 
         provider: 'Google', 
@@ -194,13 +195,13 @@ export const companies = [
   },
   {
     id: 'meta',
-    name: 'Meta AI',
+    name: 'Meta',
     color: '#0081FB',
     stack: {
       applications: { 
         provider: 'Meta', 
         providerUrl: null,
-        inHouse: true, 
+        inHouse: false, 
         products: [
           p('Meta AI', 'https://ai.meta.com/meta-ai/'),
         ] 
@@ -233,7 +234,7 @@ export const companies = [
           p('Google Cloud', 'https://www.cnbc.com/2025/08/21/google-scores-six-year-meta-cloud-deal-worth-over-10-billion.html'), 
           p('Microsoft Azure', 'https://blogs.microsoft.com/blog/2023/07/18/microsoft-and-meta-expand-their-ai-partnership-with-llama-2-on-azure-and-windows/'),
         ],
-        dependencies: ['amazon', 'google', 'microsoft'] 
+        dependencies: ['amazon', 'coreweave', 'google', 'microsoft'] 
       },
       infrastructure: { 
         provider: 'Meta + CoreWeave + Amazon', 
@@ -248,12 +249,13 @@ export const companies = [
         dependencies: ['amazon', 'coreweave', 'microsoft'] 
       },
       chips: { 
-        provider: 'AMD + NVIDIA', 
+        provider: 'Meta + AMD + NVIDIA', 
         providerUrl: null,
         inHouse: false, 
         products: [
+          p('Meta Training and Inference Accelerators', 'https://www.reuters.com/technology/artificial-intelligence/meta-begins-testing-its-first-in-house-ai-training-chip-2025-03-11/'),
           p('AMD GPUs', 'https://global.morningstar.com/en-gb/stocks/nvidia-amd-maintain-fair-value-estimate-amid-reports-metas-negotiations-buy-google-tpus'), 
-          p ('NVIDIA GPUs', 'https://global.morningstar.com/en-gb/stocks/nvidia-amd-maintain-fair-value-estimate-amid-reports-metas-negotiations-buy-google-tpus'),
+          p('NVIDIA GPUs', 'https://global.morningstar.com/en-gb/stocks/nvidia-amd-maintain-fair-value-estimate-amid-reports-metas-negotiations-buy-google-tpus'),
         ], 
         dependencies: ['amd', 'nvidia'] 
       },
@@ -280,6 +282,7 @@ export const companies = [
         products: [
           p('OpenAI API', 'https://openai.com/api/'), 
           p('Azure OpenAI', 'https://azure.microsoft.com/en-us/products/ai-foundry/models/openai'),
+          p('Open weights distribution', 'https://huggingface.co/collections/openai/gpt-oss')
         ] 
       },
       models: { 
@@ -287,7 +290,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('GPT', 'https://platform.openai.com/docs/models'), 
+          p('GPT-N', 'https://platform.openai.com/docs/models'), 
           p('Sora', 'https://platform.openai.com/docs/models'), 
           p('gpt-oss', 'https://platform.openai.com/docs/models'),
         ] 
@@ -323,7 +326,7 @@ export const companies = [
         products: [
           p('Google TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
-          p('AMD GPUs', 'https://openai.com/index/openai-amd-strategic-partnership/'),
+          p('AMD GPUs (2026)', 'https://openai.com/index/openai-amd-strategic-partnership/'),
         ], 
         dependencies: ['google', 'nvidia', 'amd'] 
       },
@@ -358,13 +361,15 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Oracle', 
+        provider: 'Amazon + Google + Oracle', 
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Oracle Cloud Infrastructure', 'https://www.oracle.com/news/announcement/xais-grok-models-are-now-on-oracle-cloud-infrastructure-2025-06-17/'),
+          p('AWS', 'https://x.ai/legal/subprocessor-list'),
+          p('Google Cloud', 'https://x.ai/legal/subprocessor-list'),
+          p('Oracle Cloud Infrastructure', 'https://x.ai/legal/subprocessor-list'),
         ],
-        dependencies: ['oracle'] 
+        dependencies: ['amazon', 'google', 'oracle'] 
       },
       infrastructure: { 
         provider: 'xAI', 
