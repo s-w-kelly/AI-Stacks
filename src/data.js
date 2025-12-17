@@ -5,16 +5,16 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "December 2025";
+export const lastUpdated = "12/16/2025";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS (probably won't change often)
 // -----------------------------------------------------------------------------
 export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products (in-house only)' },
-  { id: 'api', name: 'Model Access', description: 'APIs, developer access/tooling, weights' },
+  { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'cloud', name: 'Cloud Providers', description: 'Cloud provision/data center ops' },
+  { id: 'cloud', name: 'Compute and Cloud Platoforms', description: 'Cloud services/data center ops' },
   { id: 'infrastructure', name: 'Data Centers', description: 'Physical infrastructure' },
   { id: 'chips', name: 'Chips', description: 'AI accelerators' },
 ];
@@ -152,7 +152,7 @@ export const companies = [
         products: [
           p('Gemini API', 'https://ai.google.dev/gemini-api/docs'),
           p('Vertex AI API', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
-          p('Open weights distribution', 'https://huggingface.co/collections/google/gemma-3-release'),
+          p('Open weights distribution (Gemma)', 'https://huggingface.co/collections/google/gemma-3-release'),
         ]
       },
       models: { 
@@ -283,7 +283,7 @@ export const companies = [
         products: [
           p('OpenAI API', 'https://openai.com/api/'), 
           p('Azure OpenAI', 'https://azure.microsoft.com/en-us/products/ai-foundry/models/openai'),
-          p('Open weights distribution', 'https://huggingface.co/collections/openai/gpt-oss')
+          p('Open weights distribution (gpt-oss)', 'https://huggingface.co/collections/openai/gpt-oss')
         ] 
       },
       models: { 
