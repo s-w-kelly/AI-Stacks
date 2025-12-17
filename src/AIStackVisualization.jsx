@@ -95,9 +95,9 @@ const AIStackVisualization = () => {
         {/* Header */}
         <header className="mb-8">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">AI Stack Tracker</h1>
-          <p className="text-slate-400">Monitoring service/infrastructure partnerships and vertical integration across frontier AI developers</p>
+          <p className="text-slate-400">Monitoring hardware/infrastructure/service partnerships and vertical integration among frontier AI developers</p>
           <p className="text-sm text-slate-500 mt-1">
-            Click on a company or provider to highlight dependencies. Dotted underlines indicate source links.
+            Click on a company or provider to highlight dependencies
           </p>
         </header>
 
@@ -213,7 +213,7 @@ const AIStackVisualization = () => {
         <div className="mt-4 md:mt-6 flex gap-4 md:gap-6 text-xs md:text-sm">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-blue-500/30 border-l-2 border-blue-500"></div>
-            <span className="text-slate-400">Self sufficient (may still partner with third parties)</span>
+            <span className="text-slate-400">Self-sufficient (may still partner with third parties)</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-slate-600 border-l-2 border-slate-400"></div>
