@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "12/16/2025";
+export const lastUpdated = "12/17/2025";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS (probably won't change often)
