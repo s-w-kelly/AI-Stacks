@@ -14,9 +14,9 @@ export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products (in-house only)' },
   { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'cloud', name: 'Compute and Cloud Platoforms', description: 'Cloud services/data center ops' },
+  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, data center ops' },
   { id: 'infrastructure', name: 'Data Centers', description: 'Physical infrastructure' },
-  { id: 'chips', name: 'Chips', description: 'AI accelerators' },
+  { id: 'chips', name: 'Chips', description: 'GPUs, ASICs' },
 ];
 
 // -----------------------------------------------------------------------------
@@ -139,10 +139,10 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Gemini app', 'https://gemini.google.com/app'), 
-          p('Google AI Studio', 'https://aistudio.google.com/welcome'), 
-          p('Google Antigravity', 'https://antigravity.google/'), 
-          p('Google NotebookLM', 'https://notebooklm.google/'),
+          p('Gemini assistant', 'https://gemini.google.com/app'), 
+          p('AI Studio', 'https://aistudio.google.com/welcome'), 
+          p('Antigravity', 'https://antigravity.google/'), 
+          p('NotebookLM', 'https://notebooklm.google/'),
         ] 
       },
       api: { 
@@ -152,7 +152,7 @@ export const companies = [
         products: [
           p('Gemini API', 'https://ai.google.dev/gemini-api/docs'),
           p('Vertex AI API', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
-          p('Open weights distribution (Gemma)', 'https://huggingface.co/collections/google/gemma-3-release'),
+          p('Open weights (Gemma)', 'https://huggingface.co/collections/google/gemma-3-release'),
         ]
       },
       models: { 
@@ -214,7 +214,7 @@ export const companies = [
         products: [
           p('Llama API', 'https://llama.developer.meta.com/docs/overview/'), 
           p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/meta/'), 
-          p('Open weights distribution', 'https://huggingface.co/meta-llama'),
+          p('Open weights', 'https://huggingface.co/meta-llama'),
         ] 
       },
       models: { 
@@ -283,7 +283,7 @@ export const companies = [
         products: [
           p('OpenAI API', 'https://openai.com/api/'), 
           p('Azure OpenAI', 'https://azure.microsoft.com/en-us/products/ai-foundry/models/openai'),
-          p('Open weights distribution (gpt-oss)', 'https://huggingface.co/collections/openai/gpt-oss')
+          p('Open weights (gpt-oss)', 'https://huggingface.co/collections/openai/gpt-oss')
         ] 
       },
       models: { 
