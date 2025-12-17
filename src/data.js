@@ -11,7 +11,7 @@ export const lastUpdated = "December 2025";
 // STACK LAYERS (probably won't change often)
 // -----------------------------------------------------------------------------
 export const stackLayers = [
-  { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products' },
+  { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products (in-house only)' },
   { id: 'api', name: 'Model Access', description: 'APIs, developer access/tooling, weights' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
   { id: 'cloud', name: 'Cloud Providers', description: 'Cloud provision/data center ops' },
@@ -30,7 +30,7 @@ export const infrastructureProviders = [
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
   { id: 'coreweave', name: 'CoreWeave (cloud, data centers)', color: '#2741E7', type: 'neocloud', url: null },
   { id: 'crusoe', name: 'Crusoe (data centers)', color: '#ceeb13', type: 'neocloud', url: null },
-  { id: 'google', name: 'Google (Cloud, TPUs)', color: '#4285F4', type: 'chips', url: null },
+  { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/data centers)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud/data centers)', color: '#C74634', type: 'cloud', url: null },
@@ -202,7 +202,7 @@ export const companies = [
       applications: { 
         provider: 'Meta', 
         providerUrl: null,
-        inHouse: false, 
+        inHouse: true, 
         products: [
           p('Meta AI', 'https://ai.meta.com/meta-ai/'),
         ] 
@@ -301,7 +301,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('AWS', 'https://openai.com/index/aws-and-openai-partnership/'), 
+          p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'), 
           p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'), 
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
           p('Microsoft Azure', 'https://openai.com/index/next-chapter-of-microsoft-openai-partnership/'), 
@@ -310,15 +310,17 @@ export const companies = [
         dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle']
       },
       infrastructure: { 
-        provider: 'OpenAI + Google + Microsoft',
+        provider: 'OpenAI + Amazon + CoreWeave + Google + Microsoft',
         providerUrl: null,
         inHouse: false, 
         products: [
           p('Stargate (Crusoe)', 'https://www.bloomberg.com/news/articles/2025-10-23/openai-partner-crusoe-valued-at-10-billion-in-new-funding-round'), 
+          p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'),
+          p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'),
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
           p('Microsoft Azure', 'https://openai.com/index/next-chapter-of-microsoft-openai-partnership/'),
         ],
-        dependencies: ['crusoe', 'google', 'microsoft'] 
+        dependencies: ['amazon', 'coreweave', 'crusoe', 'google', 'microsoft'] 
       },
       chips: { 
         provider: 'Google + NVIDIA + AMD (2026)', 
