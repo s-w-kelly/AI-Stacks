@@ -198,7 +198,7 @@ const AIStackVisualization = () => {
                         isInHouse={isInHouse}
                         color={company.color}
                       />
-                      <div className="mt-1 line-clamp-2">
+                      <div className="mt-1">
                         <ProductList products={layerData.products} />
                       </div>
                     </div>
