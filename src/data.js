@@ -28,12 +28,12 @@ export const stackLayers = [
 export const infrastructureProviders = [
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
-  { id: 'coreweave', name: 'CoreWeave (cloud, data centers)', color: '#2741E7', type: 'neocloud', url: null },
+  { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud', url: null },
   { id: 'crusoe', name: 'Crusoe (data centers)', color: '#ceeb13', type: 'neocloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/data centers)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
-  { id: 'oracle', name: 'Oracle (OCI)', color: '#C74634', type: 'cloud', url: null },
+  { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
 ,
 ];
 
@@ -299,7 +299,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Stargate (OCI)', 'https://openai.com/index/five-new-stargate-sites/'),
+          p('Stargate (OpenAI/OCI)', 'https://openai.com/index/five-new-stargate-sites/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'), 
           p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'), 
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
@@ -312,7 +312,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Stargate JV (Crusoe/Oracle)', 'https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live'), 
+          p('Stargate (OpenAI/Crusoe/OCI)', 'https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live'), 
         ],
         dependencies: ['crusoe', 'oracle'] 
       },
@@ -349,7 +349,6 @@ export const companies = [
           p('xAI API', 'https://x.ai/api'),
           p('Microsoft Azure AI Foundry', 'https://devblogs.microsoft.com/foundry/announcing-grok-3-and-grok-3-mini-on-azure-ai-foundry/'),
           p('OCI Generative AI', 'https://docs.oracle.com/en-us/iaas/Content/generative-ai/xai-models.htm')
-
         ] 
       },
       models: { 
@@ -365,7 +364,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('xAI Colossus', 'https://x.ai/colossus'),
+          p('Colossus', 'https://x.ai/colossus'),
           p('AWS', 'https://x.ai/legal/subprocessor-list'),
           p('Google Cloud', 'https://x.ai/legal/subprocessor-list'),
           p('OCI', 'https://x.ai/legal/subprocessor-list'),
@@ -377,7 +376,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('xAI Colossus', 'https://x.ai/colossus'),
+          p('Colossus', 'https://x.ai/colossus'),
         ]
       },
       chips: { 
