@@ -5,13 +5,13 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "12/17/2025";
+export const lastUpdated = "12/21/2025";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS (probably won't change often)
 // -----------------------------------------------------------------------------
 export const stackLayers = [
-  { id: 'applications', name: 'Applications', description: 'Consumer and enterprise products (in-house only)' },
+  { id: 'applications', name: 'Applications', description: 'Core in-house consumer and enterprise products' },
   { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
   { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, data center ops' },
