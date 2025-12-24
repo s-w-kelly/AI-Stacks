@@ -94,7 +94,16 @@ const AIStackVisualization = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">AI Stack Tracker</h1>
+          <div className="flex items-center gap-3 mb-2">
+            <img
+              src="/stackfavlg.png"
+              alt="AI Stack Tracker logo"
+              className="h-8 w-8 md:h-10 md:w-10"
+            />
+            <h1 className="text-2xl md:text-3xl font-bold">
+              AI Stack Tracker
+            </h1>
+          </div>
           <p className="text-slate-400">Monitoring hardware/infrastructure/service partnerships and vertical integration among frontier AI labs</p>
           <p className="text-sm text-slate-500 mt-1">
             Click on a company or provider to highlight dependencies
