@@ -280,9 +280,7 @@ const AIStackVisualization = () => {
         <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500 flex flex-col sm:flex-row sm:justify-between gap-4">
           <div>
             <p>Last updated: {lastUpdated}</p>
-            <p className="mt-1">Data compiled from public sources.</p>
           </div>
-
           <div className="flex flex-col sm:items-end sm:text-right max-w-md">
             <p>
               Created and maintained by{' '}
@@ -300,7 +298,6 @@ const AIStackVisualization = () => {
             </p>
           </div>
         </footer>
-
       </div>
     </div>
   );
