@@ -277,10 +277,30 @@ const AIStackVisualization = () => {
         )}
 
         {/* Footer */}
-        <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500">
-          <p>Last updated: {lastUpdated}</p>
-          <p className="mt-1">Data compiled from public sources.</p>
+        <footer className="mt-8 pt-4 border-t border-slate-700 text-xs text-slate-500 flex flex-col sm:flex-row sm:justify-between gap-4">
+          <div>
+            <p>Last updated: {lastUpdated}</p>
+            <p className="mt-1">Data compiled from public sources.</p>
+          </div>
+
+          <div className="flex flex-col sm:items-end sm:text-right max-w-md">
+            <p>
+              Created and maintained by{' '}
+              <a
+                href="https://www.skellystuff.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline font-medium text-inherit"
+              >
+                Spencer Kelly
+              </a>.
+            </p>
+            <p className="mt-1">
+              This website was built using Claude Code but all research/analysis/content is by me.
+            </p>
+          </div>
         </footer>
+
       </div>
     </div>
   );
