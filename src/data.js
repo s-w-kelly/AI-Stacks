@@ -30,7 +30,7 @@ export const infrastructureProviders = [
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
   { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud', url: null },
   { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
-  { id: 'fluidstack', name: 'Fluidstack (cloud)', color: '#000000', type: 'cloud', url: null },
+  { id: 'fluidstack', name: 'Fluidstack (cloud/datacenters)', color: '#000000', type: 'cloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters)', color: '#3CCBF4', type: 'cloud', url: null },
@@ -95,7 +95,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Claude series', 'https://platform.claude.com/docs/en/about-claude/models/overview'),
+          p('Claude family', 'https://platform.claude.com/docs/en/about-claude/models/overview'),
         ] 
       },
       cloud: { 
@@ -163,7 +163,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Gemini series','https://deepmind.google/models/gemini/'), 
+          p('Gemini family','https://deepmind.google/models/gemini/'), 
           p('Nano Banana', 'https://deepmind.google/models/gemini-image/'),
           p('Gemma', 'https://deepmind.google/models/gemma/'),
           p('Veo', 'https://deepmind.google/models/veo/'), 
@@ -227,7 +227,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: true, 
         products: [
-          p('Llama series', 'https://huggingface.co/meta-llama')
+          p('Llama family', 'https://huggingface.co/meta-llama')
         ] 
       },
       cloud: { 
@@ -294,7 +294,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('GPT series', 'https://platform.openai.com/docs/models'), 
+          p('GPT family', 'https://platform.openai.com/docs/models'), 
           p('Sora', 'https://platform.openai.com/docs/models'), 
           p('gpt-oss', 'https://platform.openai.com/docs/models'),
         ] 
@@ -361,7 +361,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Grok series', 'https://docs.x.ai/docs/models'),
+          p('Grok family', 'https://docs.x.ai/docs/models'),
         ] 
       },
       cloud: { 
