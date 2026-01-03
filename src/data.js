@@ -5,10 +5,10 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "12/21/2025";
+export const lastUpdated = "1/3/2026";
 
 // -----------------------------------------------------------------------------
-// STACK LAYERS (probably won't change often)
+// STACK LAYERS
 // -----------------------------------------------------------------------------
 export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Core in-house consumer and enterprise products' },
@@ -29,9 +29,11 @@ export const infrastructureProviders = [
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
   { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud', url: null },
-  { id: 'crusoe', name: 'Crusoe (data centers)', color: '#ceeb13', type: 'neocloud', url: null },
+  { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
+  { id: 'fluidstack', name: 'Fluidstack (cloud)', color: '#000000', type: 'cloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
-  { id: 'microsoft', name: 'Microsoft (Azure cloud/data centers)', color: '#3CCBF4', type: 'cloud', url: null },
+  { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
+  { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
 ,
@@ -97,23 +99,25 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Amazon + Google',
+        provider: 'Anthropic/Fluidstack + Amazon + Google',
         providerUrl: null, 
         inHouse: false, 
         products: [
+          p('Anthropic Data Centers (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
           p('AWS (Rainier/others)', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
-        dependencies: ['amazon', 'google'] 
+        dependencies: ['amazon', 'fluidstack', 'google'] 
       },
       infrastructure: { 
-        provider: 'Amazon',
+        provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
         providerUrl: null, 
         inHouse: false, 
         products: [
+          p('Anthropic Data Centers (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
           p('Project Rainier (AWS partnership)', 'https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster'),         
         ], 
-        dependencies: ['amazon'] 
+        dependencies: ['amazon', 'fluidstack', 'hut8'] 
       },
       chips: { 
         provider: 'Amazon + Google + NVIDIA', 
@@ -272,6 +276,7 @@ export const companies = [
         products: [
           p('ChatGPT','https://chatgpt.com/'), 
           p('Sora', 'https://sora.chatgpt.com/'),
+          p('Codex', 'https://openai.com/codex/'),
         ] 
       },
       api: { 
