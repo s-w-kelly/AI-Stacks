@@ -14,8 +14,8 @@ export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Core in-house consumer and enterprise products' },
   { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, data center ops' },
-  { id: 'infrastructure', name: 'Data Centers', description: 'Owned/controlled infrastructure' },
+  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, datacenter ops' },
+  { id: 'infrastructure', name: 'Datacenters', description: 'Owned/controlled infrastructure' },
   { id: 'chips', name: 'Chips', description: 'GPUs, ASICs' },
 ];
 
@@ -103,7 +103,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('Anthropic Data Centers (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
+          p('Anthropic Datacenters (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
           p('AWS (Rainier/others)', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
@@ -114,7 +114,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('Anthropic Data Centers (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
+          p('Anthropic Datacenters (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
           p('Project Rainier (AWS partnership)', 'https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster'),         
         ], 
         dependencies: ['amazon', 'fluidstack', 'hut8'] 
