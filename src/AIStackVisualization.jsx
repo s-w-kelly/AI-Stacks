@@ -285,7 +285,7 @@ const AIStackVisualization = () => {
             <p>
               Created and maintained by{' '}
               <a
-                href="https://www.skellystuff.net/"
+                href="https://www.skellydotcom.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline font-medium text-inherit"
