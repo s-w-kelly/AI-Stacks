@@ -301,7 +301,7 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'OpenAI + Amazon + + Cerebras + CoreWeave + Google + Microsoft + Oracle',
+        provider: 'OpenAI + Amazon + Cerebras + CoreWeave + Google + Microsoft + Oracle',
         providerUrl: null,
         inHouse: false, 
         products: [
