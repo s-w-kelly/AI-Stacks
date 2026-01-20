@@ -104,7 +104,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('Anthropic Datacenters (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
+          p('Anthropic datacenters (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
           p('AWS (Rainier/others)', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
@@ -115,7 +115,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('Anthropic Datacenters (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
+          p('Anthropic datacenters (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
           p('Project Rainier (AWS partnership)', 'https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster'),         
         ], 
         dependencies: ['amazon', 'fluidstack', 'hut8'] 
@@ -185,7 +185,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Google Cloud', 'https://cloud.google.com/about/locations'),
+          p('Google Cloud datacenters', 'https://cloud.google.com/about/locations'),
         ] 
       },
       chips: { 
@@ -301,7 +301,7 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'OpenAI + Amazon + CoreWeave + Google + Microsoft + Oracle',
+        provider: 'OpenAI + Amazon + + Cerebras + CoreWeave + Google + Microsoft + Oracle',
         providerUrl: null,
         inHouse: false, 
         products: [
