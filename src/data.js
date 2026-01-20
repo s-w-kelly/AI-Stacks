@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "1/3/2026";
+export const lastUpdated = "1/19/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -14,7 +14,7 @@ export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Core in-house consumer and enterprise products' },
   { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, datacenter ops' },
+  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, access to compute, datacenter ops' },
   { id: 'infrastructure', name: 'Datacenters', description: 'Owned/controlled infrastructure' },
   { id: 'chips', name: 'Chips', description: 'GPUs, ASICs' },
 ];
@@ -28,6 +28,7 @@ export const stackLayers = [
 export const infrastructureProviders = [
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
+  { id: 'cerebras', name: 'Cerebras (cloud)', color: '#f33900', type: 'chips' },
   { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud', url: null },
   { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
   { id: 'fluidstack', name: 'Fluidstack (cloud/datacenters)', color: '#000000', type: 'cloud', url: null },
@@ -306,11 +307,12 @@ export const companies = [
         products: [
           p('Stargate (OpenAI/OCI)', 'https://openai.com/index/five-new-stargate-sites/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'), 
+          p('Cerebras', 'www.cerebras.ai/blog/openai-partners-with-cerebras-to-bring-high-speed-inference-to-the-mainstream'), 
           p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'), 
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
           p('Microsoft Azure', 'https://openai.com/index/next-chapter-of-microsoft-openai-partnership/'), 
         ],
-        dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'oracle']
+        dependencies: ['amazon', 'cerebras', 'coreweave', 'google', 'microsoft', 'oracle']
       },
       infrastructure: { 
         provider: 'OpenAI + Crusoe + Oracle',
@@ -382,6 +384,7 @@ export const companies = [
         inHouse: true, 
         products: [
           p('Colossus', 'https://x.ai/colossus'),
+          p('MACROHARDRR', 'https://apnews.com/article/xai-musk-data-center-mississippi-memphis-433691ace945708a04762b4791602f3d'),
         ]
       },
       chips: { 
