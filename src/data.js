@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "1/19/2026";
+export const lastUpdated = "2/3/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -34,7 +34,7 @@ export const infrastructureProviders = [
   { id: 'fluidstack', name: 'Fluidstack (cloud/datacenters)', color: '#000000', type: 'cloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
-  { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters)', color: '#3CCBF4', type: 'cloud', url: null },
+  { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
 ,
@@ -125,7 +125,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('AWS Trainium/Inferentia', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
+          p('AWS Trainium/Inferentia accelerators', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('Google Cloud TPUs', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'), 
           p('NVIDIA GPUs', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
@@ -324,15 +324,16 @@ export const companies = [
         dependencies: ['crusoe', 'oracle'] 
       },
       chips: { 
-        provider: 'Google + NVIDIA + AMD (2026)', 
+        provider: 'AMD + Google + Microsoft + NVIDIA', 
         providerUrl: null,
         inHouse: false, 
         products: [
+          p('AMD GPUs', 'https://openai.com/index/openai-amd-strategic-partnership/'),
           p('Google Cloud TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
-          p('AMD GPUs (2026)', 'https://openai.com/index/openai-amd-strategic-partnership/'),
+          p('Microsoft Maia accelerators', 'https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/'), 
         ], 
-        dependencies: ['google', 'nvidia', 'amd'] 
+        dependencies: ['amd', 'google', 'microsoft', 'nvidia'] 
       },
     }
   },
