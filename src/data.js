@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "2/3/2026";
+export const lastUpdated = "3/4/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -78,6 +78,7 @@ export const companies = [
         products: [
           p('Claude.ai', 'https://claude.ai/'), 
           p('Claude Code', 'https://claude.com/product/claude-code'),
+          p('Claude Cowork', 'https://claude.com/product/cowork')
         ] 
       },
       api: { 
@@ -257,9 +258,9 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('MTIAs', 'https://www.reuters.com/technology/artificial-intelligence/meta-begins-testing-its-first-in-house-ai-training-chip-2025-03-11/'),
-          p('AMD GPUs', 'https://www.theregister.com/2024/12/23/nvidia_ai_hardware_competition/'), 
-          p('NVIDIA GPUs', 'https://www.theregister.com/2024/12/23/nvidia_ai_hardware_competition/'),
+          p('MTIAs', 'https://about.fb.com/news/2026/02/meta-amd-partner-longterm-ai-infrastructure-agreement/'),
+          p('AMD GPUs', 'https://www.amd.com/en/newsroom/press-releases/2026-2-24-amd-and-meta-announce-expanded-strategic-partnersh.html'), 
+          p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia'),
         ], 
         dependencies: ['amd', 'nvidia'] 
       },
@@ -307,7 +308,7 @@ export const companies = [
         products: [
           p('Stargate (OpenAI/OCI)', 'https://openai.com/index/five-new-stargate-sites/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'), 
-          p('Cerebras', 'www.cerebras.ai/blog/openai-partners-with-cerebras-to-bring-high-speed-inference-to-the-mainstream'), 
+          p('Cerebras', 'https://finance.yahoo.com/news/openai-buy-compute-capacity-startup-200619645.html'), 
           p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'), 
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
           p('Microsoft Azure', 'https://openai.com/index/next-chapter-of-microsoft-openai-partnership/'), 
