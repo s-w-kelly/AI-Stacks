@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "3/4/2026";
+export const lastUpdated = "3/12/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -28,6 +28,7 @@ export const stackLayers = [
 export const infrastructureProviders = [
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
+  { id: 'broadcom', name: 'Broadcom (chip development)', color: '#CC092F', type: 'chips' },
   { id: 'cerebras', name: 'Cerebras (cloud)', color: '#f33900', type: 'chips' },
   { id: 'coreweave', name: 'CoreWeave (cloud)', color: '#2741E7', type: 'neocloud', url: null },
   { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
@@ -37,7 +38,6 @@ export const infrastructureProviders = [
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
-,
 ];
 
 // -----------------------------------------------------------------------------
@@ -105,8 +105,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('Anthropic datacenters (w/ Fluidstack)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),                   
-          p('AWS (Rainier/others)', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
+          p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
         dependencies: ['amazon', 'fluidstack', 'google'] 
@@ -169,7 +168,6 @@ export const companies = [
           p('Nano Banana', 'https://deepmind.google/models/gemini-image/'),
           p('Gemma', 'https://deepmind.google/models/gemma/'),
           p('Veo', 'https://deepmind.google/models/veo/'), 
-          p('Imagen', 'https://deepmind.google/models/imagen/'), 
           p('Lyria', 'https://deepmind.google/models/lyria/'),
         ] 
       },
@@ -194,8 +192,9 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Google Cloud TPUs', 'https://cloud.google.com/tpu?hl=en'),
-        ] 
+          p('Google Cloud TPUs (Broadcom co-developed)', 'https://cloud.google.com/tpu?hl=en'),
+        ],
+        dependencies: ['broadcom'],
       },
     }
   },
@@ -237,7 +236,6 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Meta Data Centers', 'https://datacenters.atmeta.com/'), 
           p('AWS', 'https://ai.meta.com/blog/aws-program-startups-build-with-llama/'), 
           p('CoreWeave', 'https://finance.yahoo.com/news/coreweave-signs-14-billion-ai-124208188.html'), 
           p('Google Cloud', 'https://www.cnbc.com/2025/08/21/google-scores-six-year-meta-cloud-deal-worth-over-10-billion.html'), 
@@ -254,15 +252,16 @@ export const companies = [
         ],
       },
       chips: { 
-        provider: 'Meta + AMD + NVIDIA', 
+        provider: 'Meta + AMD + Google + NVIDIA', 
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('MTIAs', 'https://about.fb.com/news/2026/02/meta-amd-partner-longterm-ai-infrastructure-agreement/'),
-          p('AMD GPUs', 'https://www.amd.com/en/newsroom/press-releases/2026-2-24-amd-and-meta-announce-expanded-strategic-partnersh.html'), 
+          p('MTIAs (Broadcom co-developed)', 'https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/'),
+          p('AMD GPUs', 'https://www.amd.com/en/newsroom/press-releases/2026-2-24-amd-and-meta-announce-expanded-strategic-partnersh.html'),
+          p('Google TPUs', 'https://finance.yahoo.com/news/google-signs-multibillion-dollar-ai-232844608.html'),
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia'),
         ], 
-        dependencies: ['amd', 'nvidia'] 
+        dependencies: ['amd', 'broadcom', 'google', 'nvidia'] 
       },
     }
   },
@@ -306,12 +305,12 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Stargate (OpenAI/OCI)', 'https://openai.com/index/five-new-stargate-sites/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure'), 
           p('Cerebras', 'https://finance.yahoo.com/news/openai-buy-compute-capacity-startup-200619645.html'), 
           p('CoreWeave', 'https://www.coreweave.com/news/coreweave-expands-agreement-with-openai-by-up-to-6-5b'), 
           p('Google Cloud', 'https://www.reuters.com/business/retail-consumer/openai-taps-google-unprecedented-cloud-deal-despite-ai-rivalry-sources-say-2025-06-10/'), 
           p('Microsoft Azure', 'https://openai.com/index/next-chapter-of-microsoft-openai-partnership/'), 
+          p('Oracle', 'https://openai.com/index/five-new-stargate-sites/'), 
         ],
         dependencies: ['amazon', 'cerebras', 'coreweave', 'google', 'microsoft', 'oracle']
       },
@@ -325,7 +324,7 @@ export const companies = [
         dependencies: ['crusoe', 'oracle'] 
       },
       chips: { 
-        provider: 'AMD + Google + Microsoft + NVIDIA', 
+        provider: 'AMD + Google + Microsoft + NVIDIA + Broadcom', 
         providerUrl: null,
         inHouse: false, 
         products: [
@@ -333,8 +332,9 @@ export const companies = [
           p('Google Cloud TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
           p('Microsoft Maia accelerators', 'https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/'), 
+          p('In-house chips (Broadcom co-developed) (forthcoming)', 'https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/'), 
         ], 
-        dependencies: ['amd', 'google', 'microsoft', 'nvidia'] 
+        dependencies: ['amd', 'broadcom', 'google', 'microsoft', 'nvidia'] 
       },
     }
   },
@@ -373,7 +373,6 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Colossus', 'https://x.ai/colossus'),
           p('AWS', 'https://x.ai/legal/subprocessor-list'),
           p('Google Cloud', 'https://x.ai/legal/subprocessor-list'),
           p('OCI', 'https://x.ai/legal/subprocessor-list'),
@@ -385,7 +384,7 @@ export const companies = [
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Colossus', 'https://x.ai/colossus'),
+          p('Colossus datacenters', 'https://x.ai/colossus'),
           p('MACROHARDRR', 'https://apnews.com/article/xai-musk-data-center-mississippi-memphis-433691ace945708a04762b4791602f3d'),
         ]
       },
