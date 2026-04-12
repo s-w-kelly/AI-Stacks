@@ -101,14 +101,15 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Anthropic/Fluidstack + Amazon + Google',
+        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google',
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'), 
+          p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
+          p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
-        dependencies: ['amazon', 'fluidstack', 'google'] 
+        dependencies: ['amazon', 'coreweave', 'fluidstack', 'google'] 
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -121,15 +122,15 @@ export const companies = [
         dependencies: ['amazon', 'fluidstack', 'hut8'] 
       },
       chips: { 
-        provider: 'Amazon + Google + NVIDIA', 
+        provider: 'Amazon + Google(+Broadcom) + NVIDIA', 
         providerUrl: null,
         inHouse: false, 
         products: [
           p('AWS Trainium/Inferentia accelerators', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
-          p('Google Cloud TPUs', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'), 
+          p('Google Cloud TPUs (supplied by Google and Broadcom)', 'https://www.tomshardware.com/tech-industry/broadcom-expands-anthropic-deal-to-3-5gw-of-google-tpu-capacity-from-2027'), 
           p('NVIDIA GPUs', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
-        dependencies: ['amazon', 'google', 'nvidia'] 
+        dependencies: ['amazon', 'broadcom', 'google', 'nvidia'] 
       },
     }
   },
