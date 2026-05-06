@@ -108,6 +108,7 @@ export const companies = [
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
+          p('SpaceX/xAI (Colossus)', 'https://www.anthropic.com/news/higher-limits-spacex'),
         ], 
         dependencies: ['amazon', 'coreweave', 'fluidstack', 'google'] 
       },
