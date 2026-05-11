@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "4/11/2026";
+export const lastUpdated = "5/11/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -26,6 +26,7 @@ export const stackLayers = [
 // The 'type' field is for potential future filtering (chips vs cloud vs neocloud).
 // -----------------------------------------------------------------------------
 export const infrastructureProviders = [
+  { id: 'akamai', name: 'Akamai (cloud)', color: '#00A4EB', type: 'cloud' },
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
   { id: 'broadcom', name: 'Broadcom (chip development)', color: '#CC092F', type: 'chips' },
@@ -105,6 +106,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
+          p('akamai', 'https://www.forbes.com/sites/janakirammsv/2026/05/08/akamai-lands-18-billion-anthropic-deal-as-cdn-becomes-ai-cloud/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
