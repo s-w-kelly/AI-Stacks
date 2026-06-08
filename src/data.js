@@ -39,6 +39,8 @@ export const infrastructureProviders = [
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
+  { id: 'spacex', name: 'SpaceX (cloud)', color: '#000000', type: 'cloud', url: null },
+
 ];
 
 // -----------------------------------------------------------------------------
@@ -102,7 +104,7 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google',
+        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google + SpaceX',
         providerUrl: null, 
         inHouse: false, 
         products: [
@@ -110,9 +112,9 @@ export const companies = [
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
-          p('SpaceX/xAI (Colossus)', 'https://www.anthropic.com/news/higher-limits-spacex'),
+          p('SpaceX', 'https://www.anthropic.com/news/higher-limits-spacex'),
         ], 
-        dependencies: ['amazon', 'coreweave', 'fluidstack', 'google'] 
+        dependencies: ['amazon', 'coreweave', 'fluidstack', 'google', 'spacex'] 
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -184,11 +186,12 @@ export const companies = [
         ] 
       },
       infrastructure: { 
-        provider: 'Google', 
+        provider: 'Google + SpaceX', 
         providerUrl: null,
         inHouse: true, 
         products: [
           p('Google Cloud datacenters', 'https://cloud.google.com/about/locations'),
+          p('SpaceX', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
         ] 
       },
       chips: { 
