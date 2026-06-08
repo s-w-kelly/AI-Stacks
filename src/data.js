@@ -178,20 +178,20 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Google', 
-        providerUrl: null,
-        inHouse: true, 
-        products: [
-          p('Google Cloud', 'https://cloud.google.com/'),
-        ] 
-      },
-      infrastructure: { 
         provider: 'Google + SpaceX', 
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Google Cloud datacenters', 'https://cloud.google.com/about/locations'),
+          p('Google Cloud', 'https://cloud.google.com/'),
           p('SpaceX', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
+        ] 
+      },
+      infrastructure: { 
+        provider: 'Google', 
+        providerUrl: null,
+        inHouse: true, 
+        products: [
+          p('Google Cloud datacenters', 'https://cloud.google.com/about/locations'),
         ] 
       },
       chips: { 
