@@ -4,7 +4,8 @@
       "Bash(cd C:\\\\Users\\\\yelle\\\\OneDrive\\\\desktop\\\\projects\\\\ai-stack-project:*)",
       "Bash(tail:*)",
       "WebFetch(domain:law-ai.org)",
-      "WebFetch(domain:ifp.org)"
+      "WebFetch(domain:ifp.org)",
+      "WebSearch"
     ]
   }
 }

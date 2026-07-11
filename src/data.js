@@ -37,9 +37,10 @@ export const infrastructureProviders = [
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
+  { id: 'nebius', name: 'Nebius (cloud/datacenters)', color: '#d3f254', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
-  { id: 'spacex', name: 'SpaceX (cloud)', color: '#000000', type: 'cloud', url: null },
+  { id: 'spacexai', name: 'SpaceXAI (cloud)', color: '#000000', type: 'cloud', url: null },
 
 ];
 
@@ -92,7 +93,7 @@ export const companies = [
           p('Claude API', 'https://claude.com/platform/api'), 
           p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/anthropic/'), 
           p('Google Vertex AI', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude'), 
-          p('Microsoft Azure AI Foundry', 'https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/use-foundry-models-claude?view=foundry-classic&tabs=python'),
+          p('Microsoft Foundry', 'https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/use-foundry-models-claude?view=foundry-classic&tabs=python'),
         ] 
       },
       models: { 
@@ -104,7 +105,7 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google + SpaceX',
+        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google + Microsoft + SpaceXAI',
         providerUrl: null, 
         inHouse: false, 
         products: [
@@ -112,9 +113,10 @@ export const companies = [
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
-          p('SpaceX', 'https://www.anthropic.com/news/higher-limits-spacex'),
+          p('Microsoft', 'https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships'),
+          p('SpaceXAI', 'https://www.anthropic.com/news/higher-limits-spacex'),
         ], 
-        dependencies: ['amazon', 'coreweave', 'fluidstack', 'google', 'spacex'] 
+        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai'] 
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -178,12 +180,12 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'Google + SpaceX', 
+        provider: 'Google + SpaceXAI', 
         providerUrl: null,
         inHouse: true, 
         products: [
           p('Google Cloud', 'https://cloud.google.com/'),
-          p('SpaceX', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
+          p('SpaceXAI', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
         ] 
       },
       infrastructure: { 
@@ -235,11 +237,13 @@ export const companies = [
         providerUrl: null, 
         inHouse: true, 
         products: [
-          p('Llama family', 'https://huggingface.co/meta-llama')
+          p('Llama family', 'https://huggingface.co/meta-llama'),
+          p('Muse family', 'https://ai.meta.com/blog/introducing-muse-spark-msl/')
+
         ] 
       },
       cloud: { 
-        provider: 'Meta + Amazon + CoreWeave + Google + Microsoft',
+        provider: 'Meta + Amazon + CoreWeave + Google + Microsoft + Nebius',
         providerUrl: null,
         inHouse: false, 
         products: [
@@ -247,15 +251,17 @@ export const companies = [
           p('CoreWeave', 'https://finance.yahoo.com/news/coreweave-signs-14-billion-ai-124208188.html'), 
           p('Google Cloud', 'https://www.cnbc.com/2025/08/21/google-scores-six-year-meta-cloud-deal-worth-over-10-billion.html'), 
           p('Microsoft Azure', 'https://blogs.microsoft.com/blog/2023/07/18/microsoft-and-meta-expand-their-ai-partnership-with-llama-2-on-azure-and-windows/'),
+          p('Nebius', 'https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta'), 
         ],
-        dependencies: ['amazon', 'coreweave', 'google', 'microsoft'] 
+        dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'nebius'] 
       },
       infrastructure: { 
         provider: 'Meta', 
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('Meta Data Centers', 'https://datacenters.atmeta.com/'), 
+          p('Meta Data Centers', 'https://datacenters.atmeta.com/'),
+          p('Nebius', 'https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta'), 
         ],
       },
       chips: { 
@@ -335,40 +341,40 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
+          p('Jalapeño (in-house inference accelerator; Broadcom co-developed)', 'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'),
           p('AMD GPUs', 'https://openai.com/index/openai-amd-strategic-partnership/'),
           p('Google Cloud TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
           p('Microsoft Maia accelerators', 'https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/'), 
-          p('In-house chips (Broadcom co-developed) (forthcoming)', 'https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/'), 
         ], 
         dependencies: ['amd', 'broadcom', 'google', 'microsoft', 'nvidia'] 
       },
     }
   },
   {
-    id: 'xai',
-    name: 'xAI',
+    id: 'spacexai',
+    name: 'SpaceXAI',
     color: '#000000',
     stack: {
       applications: { 
-        provider: 'xAI', 
+        provider: 'SpaceXAI', 
         inHouse: true, 
         products: [
           p('Grok', 'https://grok.com/'),
         ] 
       },
       api: { 
-        provider: 'xAI', 
+        provider: 'SpaceXAI', 
         providerUrl: null,
         inHouse: true, 
         products: [
-          p('xAI API', 'https://x.ai/api'),
+          p('SpaceXAI API', 'https://x.ai/api'),
           p('Microsoft Azure AI Foundry', 'https://devblogs.microsoft.com/foundry/announcing-grok-3-and-grok-3-mini-on-azure-ai-foundry/'),
           p('OCI Generative AI', 'https://docs.oracle.com/en-us/iaas/Content/generative-ai/xai-models.htm')
         ] 
       },
       models: { 
-        provider: 'xAI', 
+        provider: 'SpaceXAI', 
         providerUrl: null,
         inHouse: true, 
         products: [
@@ -376,7 +382,7 @@ export const companies = [
         ] 
       },
       cloud: { 
-        provider: 'xAI + Amazon + Google + Oracle', 
+        provider: 'SpaceXAI + Amazon + Google + Oracle', 
         providerUrl: null,
         inHouse: false, 
         products: [
@@ -387,7 +393,7 @@ export const companies = [
         dependencies: ['amazon', 'google', 'oracle'] 
       },
       infrastructure: { 
-        provider: 'xAI', 
+        provider: 'SpaceXAI', 
         providerUrl: null,
         inHouse: true, 
         products: [
