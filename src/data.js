@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "5/11/2026";
+export const lastUpdated = "7/11/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -27,6 +27,7 @@ export const stackLayers = [
 // -----------------------------------------------------------------------------
 export const infrastructureProviders = [
   { id: 'akamai', name: 'Akamai (cloud)', color: '#00A4EB', type: 'cloud' },
+  { id: 'alibabacloud', name: 'Alibaba Cloud (cloud/datacenters)', color: '#FF6A00', type: 'cloud', url: null, region: 'china' },
   { id: 'amazon', name: 'Amazon (AWS cloud/datacenters, chips)', color: '#FF9900', type: 'cloud' },
   { id: 'amd', name: 'AMD (GPUs)', color: '#ED1C24', type: 'chips' },
   { id: 'broadcom', name: 'Broadcom (chip development)', color: '#CC092F', type: 'chips' },
@@ -35,6 +36,7 @@ export const infrastructureProviders = [
   { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
   { id: 'fluidstack', name: 'Fluidstack (cloud/datacenters)', color: '#000000', type: 'cloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
+  { id: 'huawei', name: 'Huawei (Ascend chips, cloud)', color: '#CF0A2C', type: 'chips', url: null, region: 'china' },
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nebius', name: 'Nebius (cloud/datacenters)', color: '#d3f254', type: 'cloud', url: null },
@@ -68,6 +70,14 @@ const p = (name, url = null) => ({ name, url });
 //   - inHouse: true if they own it, false if external dependency
 //   - products: array of { name, url } objects (use p() helper above)
 //   - dependencies: array of provider IDs (only if inHouse is false)
+//   - confidence: optional 'confirmed' | 'reported' | 'unknown' (defaults to
+//       'confirmed' when omitted). Encodes how solid the sourcing is. Use it for
+//       opaque rows — e.g. Chinese labs' chip/datacenter sourcing — so the map can
+//       stay honest instead of omitting rows it can't fully verify. Renders as
+//       border style: solid = confirmed, dashed = reported, dotted = unknown.
+//
+//   - region: optional 'us' | 'china' on the COMPANY (defaults to 'us'). Used to
+//       group/label labs; the provider set differs by region.
 // -----------------------------------------------------------------------------
 export const companies = [
  {
@@ -109,7 +119,7 @@ export const companies = [
         providerUrl: null, 
         inHouse: false, 
         products: [
-          p('akamai', 'https://www.forbes.com/sites/janakirammsv/2026/05/08/akamai-lands-18-billion-anthropic-deal-as-cdn-becomes-ai-cloud/'),
+          p('Akamai', 'https://www.forbes.com/sites/janakirammsv/2026/05/08/akamai-lands-18-billion-anthropic-deal-as-cdn-becomes-ai-cloud/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
@@ -401,14 +411,280 @@ export const companies = [
           p('MACROHARDRR', 'https://apnews.com/article/xai-musk-data-center-mississippi-memphis-433691ace945708a04762b4791602f3d'),
         ]
       },
-      chips: { 
-        provider: 'NVIDIA', 
+      chips: {
+        provider: 'NVIDIA',
         providerUrl: null,
-        inHouse: false, 
+        inHouse: false,
         products: [
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus'),
-        ], 
-        dependencies: ['nvidia'] 
+        ],
+        dependencies: ['nvidia']
+      },
+    }
+  },
+  // ---------------------------------------------------------------------------
+  // CHINESE LABS (MOCK) — sourcing on the lower layers is deliberately marked
+  // with confidence levels. Verify/replace URLs and claims before publishing.
+  // ---------------------------------------------------------------------------
+  {
+    id: 'deepseek',
+    name: 'DeepSeek',
+    color: '#4D6BFE',
+    region: 'china',
+    stack: {
+      applications: {
+        provider: 'DeepSeek',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('DeepSeek app/chat', 'https://chat.deepseek.com/'),
+        ]
+      },
+      api: {
+        provider: 'DeepSeek',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('DeepSeek API', 'https://platform.deepseek.com/'),
+          p('Open weights', 'https://huggingface.co/deepseek-ai'),
+        ]
+      },
+      models: {
+        provider: 'DeepSeek',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('DeepSeek-V3 / R1 family', 'https://huggingface.co/deepseek-ai'),
+        ]
+      },
+      cloud: {
+        provider: 'High-Flyer (self-operated)',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'reported',
+        products: [
+          p('Self-operated clusters (parent: High-Flyer)'),
+        ]
+      },
+      infrastructure: {
+        provider: 'High-Flyer (self-operated)',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'reported',
+        products: [
+          p('Fire-Flyer clusters (reported)'),
+        ]
+      },
+      chips: {
+        provider: 'NVIDIA + Huawei (reported)',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('NVIDIA A100 / H800 (reported, pre-controls stockpile)'),
+          p('Huawei Ascend for inference (reported)'),
+        ],
+        dependencies: ['nvidia', 'huawei']
+      },
+    }
+  },
+  {
+    id: 'alibaba',
+    name: 'Alibaba (Qwen)',
+    color: '#FF6A00',
+    region: 'china',
+    stack: {
+      applications: {
+        provider: 'Alibaba',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Qwen chat', 'https://chat.qwen.ai/'),
+          p('Quark'),
+        ]
+      },
+      api: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Model Studio (DashScope)', 'https://www.alibabacloud.com/en/product/modelstudio'),
+          p('Open weights', 'https://huggingface.co/Qwen'),
+        ]
+      },
+      models: {
+        provider: 'Alibaba',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Qwen family', 'https://huggingface.co/Qwen'),
+        ]
+      },
+      cloud: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Alibaba Cloud', 'https://www.alibabacloud.com/'),
+        ]
+      },
+      infrastructure: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Alibaba Cloud datacenters', 'https://www.alibabacloud.com/en/global-locations'),
+        ]
+      },
+      chips: {
+        provider: 'NVIDIA + Huawei + in-house (reported)',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'reported',
+        products: [
+          p('NVIDIA H20 / export-compliant parts (reported)'),
+          p('Huawei Ascend (reported)'),
+          p('T-Head / in-house accelerators (reported)'),
+        ],
+        dependencies: ['nvidia', 'huawei']
+      },
+    }
+  },
+  {
+    id: 'moonshot',
+    name: 'Moonshot (Kimi)',
+    color: '#5A4FCF',
+    region: 'china',
+    stack: {
+      applications: {
+        provider: 'Moonshot AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Kimi', 'https://www.kimi.com/'),
+        ]
+      },
+      api: {
+        provider: 'Moonshot AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Moonshot API', 'https://platform.moonshot.ai/'),
+          p('Open weights', 'https://huggingface.co/moonshotai'),
+        ]
+      },
+      models: {
+        provider: 'Moonshot AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Kimi K2 family', 'https://huggingface.co/moonshotai'),
+        ]
+      },
+      cloud: {
+        provider: 'Undisclosed public cloud',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('Undisclosed (Alibaba is an investor; cloud provider not confirmed)'),
+        ]
+      },
+      infrastructure: {
+        provider: 'Undisclosed',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('Undisclosed'),
+        ]
+      },
+      chips: {
+        provider: 'NVIDIA + Huawei (reported)',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('NVIDIA H800 / H20 (reported)'),
+          p('Huawei Ascend (reported)'),
+        ],
+        dependencies: ['nvidia', 'huawei']
+      },
+    }
+  },
+  {
+    id: 'zhipu',
+    name: 'Zhipu (Z.ai)',
+    color: '#3B5BDB',
+    region: 'china',
+    stack: {
+      applications: {
+        provider: 'Zhipu AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Z.ai chat', 'https://chat.z.ai/'),
+        ]
+      },
+      api: {
+        provider: 'Zhipu AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('BigModel / Z.ai API', 'https://open.bigmodel.cn/'),
+          p('Open weights', 'https://huggingface.co/zai-org'),
+        ]
+      },
+      models: {
+        provider: 'Zhipu AI',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('GLM family', 'https://huggingface.co/zai-org'),
+        ]
+      },
+      cloud: {
+        provider: 'Undisclosed public cloud',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('Undisclosed'),
+        ]
+      },
+      infrastructure: {
+        provider: 'Undisclosed',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'unknown',
+        products: [
+          p('Undisclosed'),
+        ]
+      },
+      chips: {
+        provider: 'NVIDIA + Huawei (reported)',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'reported',
+        products: [
+          p('NVIDIA (reported)'),
+          p('Huawei Ascend (reported)'),
+        ],
+        dependencies: ['nvidia', 'huawei']
       },
     }
   },
