@@ -66,27 +66,32 @@ const ConfidenceBadge = ({ level }) => {
   );
 };
 
-// Segmented light/dark control — deliberately not the usual sun/moon switch.
-const ThemeToggle = ({ theme, setTheme }) => (
-  <div
-    role="group"
-    aria-label="Color theme"
-    className="inline-flex items-center gap-0.5 rounded-md border border-hairline bg-surface p-0.5 text-xs font-medium shadow-card"
-  >
-    {['light', 'dark'].map(mode => (
-      <button
-        key={mode}
-        onClick={() => setTheme(mode)}
-        aria-pressed={theme === mode}
-        className={`rounded px-2.5 py-1 capitalize transition-colors ${
-          theme === mode ? 'bg-accent text-paper' : 'text-muted hover:text-ink'
-        }`}
-      >
-        {mode}
-      </button>
-    ))}
-  </div>
-);
+// Sun/moon icon toggle for light/dark theme.
+const ThemeToggle = ({ theme, setTheme }) => {
+  const isDark = theme === 'dark';
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-hairline bg-surface text-muted shadow-card transition-colors hover:text-ink"
+    >
+      {isDark ? (
+        // Moon
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      ) : (
+        // Sun
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+      )}
+    </button>
+  );
+};
 
 // Helper component for rendering provider name with optional link
 const ProviderName = ({ provider, providerUrl, isInHouse, color }) => {
@@ -330,18 +335,16 @@ const AIStackVisualization = () => {
               <img
                 src="/stackfavlg.png"
                 alt="AI Stack Tracker logo"
-                className="h-9 w-9 md:h-10 md:w-10"
+                className="h-10 w-10 md:h-12 md:w-12"
               />
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-              </span>
+              <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+                AI Stack Tracker
+              </h1>
             </div>
             <ThemeToggle theme={theme} setTheme={setTheme} />
           </div>
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-            AI Stack Tracker
-          </h1>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
-            A map of hardware, infrastructure, and service dependencies across American and Chinese frontier AI labs.
+            Monitoring hardware, infrastructure, and service partnerships/dependencies across American and Chinese frontier AI labs.
           </p>
           <p className="mt-2 text-sm text-faint">
             Select a lab or a provider to trace its dependencies across the stack.
@@ -475,7 +478,7 @@ const AIStackVisualization = () => {
               </a>.
             </p>
             <p className="mt-1">
-              Built with Claude Code; all research, analysis, and content by the author.
+              This website was built using Claude Code but all research/analysis/content is by me.
             </p>
           </div>
         </footer>
