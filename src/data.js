@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "7/11/2026";
+export const lastUpdated = "8/4/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -36,7 +36,7 @@ export const infrastructureProviders = [
   { id: 'crusoe', name: 'Crusoe (datacenters)', color: '#ceeb13', type: 'neocloud', url: null },
   { id: 'fluidstack', name: 'Fluidstack (cloud/datacenters)', color: '#000000', type: 'cloud', url: null },
   { id: 'google', name: 'Google (cloud/datacenters, TPUs)', color: '#4285F4', type: 'chips', url: null },
-  { id: 'huawei', name: 'Huawei (Ascend chips, cloud)', color: '#CF0A2C', type: 'chips', url: null, region: 'china' },
+  { id: 'huawei', name: 'Huawei (Ascend GPUs)', color: '#CF0A2C', type: 'chips', url: null, region: 'china' },
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nebius', name: 'Nebius (cloud/datacenters)', color: '#d3f254', type: 'cloud', url: null },
@@ -102,7 +102,7 @@ export const companies = [
         products: [
           p('Claude API', 'https://claude.com/platform/api'), 
           p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/anthropic/'), 
-          p('Google Vertex AI', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude'), 
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude'), 
           p('Microsoft Foundry', 'https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/use-foundry-models-claude?view=foundry-classic&tabs=python'),
         ] 
       },
@@ -114,19 +114,20 @@ export const companies = [
           p('Claude family', 'https://platform.claude.com/docs/en/about-claude/models/overview'),
         ] 
       },
-      cloud: { 
-        provider: 'Anthropic/Fluidstack + Amazon + CoreWeave + Google + Microsoft + SpaceXAI',
-        providerUrl: null, 
-        inHouse: false, 
+      cloud: {
+        provider: 'Anthropic/Fluidstack + Akamai + Amazon + CoreWeave + Google + Microsoft + SpaceXAI',
+        providerUrl: null,
+        inHouse: false,
         products: [
           p('Akamai', 'https://www.forbes.com/sites/janakirammsv/2026/05/08/akamai-lands-18-billion-anthropic-deal-as-cdn-becomes-ai-cloud/'),
           p('AWS', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
-          p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'), 
+          p('CoreWeave', 'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Multi-Year-Agreement-With-Anthropic/default.aspx'),
+          p('Fluidstack', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
           p('Microsoft', 'https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships'),
           p('SpaceXAI', 'https://www.anthropic.com/news/higher-limits-spacex'),
-        ], 
-        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai'] 
+        ],
+        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai']
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -173,7 +174,7 @@ export const companies = [
         inHouse: true, 
         products: [
           p('Gemini API', 'https://ai.google.dev/gemini-api/docs'),
-          p('Vertex AI API', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
           p('Open weights (Gemma)', 'https://huggingface.co/collections/google/gemma-3-release'),
         ]
       },
@@ -189,14 +190,15 @@ export const companies = [
           p('Lyria', 'https://deepmind.google/models/lyria/'),
         ] 
       },
-      cloud: { 
-        provider: 'Google + SpaceXAI', 
+      cloud: {
+        provider: 'Google + SpaceXAI',
         providerUrl: null,
-        inHouse: true, 
+        inHouse: true,
         products: [
           p('Google Cloud', 'https://cloud.google.com/'),
-          p('SpaceXAI', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
-        ] 
+          p('SpaceXAI (bridge compute in xAI datacenters)', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
+        ],
+        dependencies: ['spacexai']
       },
       infrastructure: { 
         provider: 'Google', 
@@ -238,7 +240,7 @@ export const companies = [
           p('Llama API', 'https://llama.developer.meta.com/docs/overview/'), 
           p('Open weights', 'https://huggingface.co/meta-llama'),
           p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/meta/'), 
-          p('Google Vertex AI', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama'),
           p('Microsoft Azure AI Foundry', 'https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/models-inference-examples?view=foundry-classic&tabs=llama-three#meta'),
         ] 
       },
@@ -265,19 +267,20 @@ export const companies = [
         ],
         dependencies: ['amazon', 'coreweave', 'google', 'microsoft', 'nebius'] 
       },
-      infrastructure: { 
-        provider: 'Meta', 
+      infrastructure: {
+        provider: 'Meta + Nebius',
         providerUrl: null,
-        inHouse: true, 
+        inHouse: true,
         products: [
           p('Meta Data Centers', 'https://datacenters.atmeta.com/'),
-          p('Nebius', 'https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta'), 
+          p('Nebius', 'https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta'),
         ],
+        dependencies: ['nebius']
       },
-      chips: { 
-        provider: 'Meta + AMD + Google + NVIDIA', 
+      chips: {
+        provider: 'Meta(+Broadcom) + AMD + Google + NVIDIA',
         providerUrl: null,
-        inHouse: false, 
+        inHouse: false,
         products: [
           p('MTIAs (Broadcom co-developed)', 'https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/'),
           p('AMD GPUs', 'https://www.amd.com/en/newsroom/press-releases/2026-2-24-amd-and-meta-announce-expanded-strategic-partnersh.html'),
@@ -351,7 +354,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Jalapeño (in-house inference accelerator; Broadcom co-developed)', 'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'),
+          p('Jalapeño (Broadcom co-developed)', 'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'),
           p('AMD GPUs', 'https://openai.com/index/openai-amd-strategic-partnership/'),
           p('Google Cloud TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
@@ -391,16 +394,17 @@ export const companies = [
           p('Grok family', 'https://docs.x.ai/docs/models'),
         ] 
       },
-      cloud: { 
-        provider: 'SpaceXAI + Amazon + Google + Oracle', 
+      cloud: {
+        provider: 'SpaceXAI + Amazon + Google + Oracle',
         providerUrl: null,
-        inHouse: false, 
+        inHouse: true,
         products: [
+          p('Colossus (self-operated compute)', 'https://x.ai/colossus'),
           p('AWS', 'https://x.ai/legal/subprocessor-list'),
           p('Google Cloud', 'https://x.ai/legal/subprocessor-list'),
           p('OCI', 'https://x.ai/legal/subprocessor-list'),
         ],
-        dependencies: ['amazon', 'google', 'oracle'] 
+        dependencies: ['amazon', 'google', 'oracle']
       },
       infrastructure: { 
         provider: 'SpaceXAI', 
@@ -423,9 +427,80 @@ export const companies = [
     }
   },
   // ---------------------------------------------------------------------------
-  // CHINESE LABS (MOCK) — sourcing on the lower layers is deliberately marked
-  // with confidence levels. Verify/replace URLs and claims before publishing.
+  // CHINESE LABS
   // ---------------------------------------------------------------------------
+  {
+    id: 'alibaba',
+    name: 'Alibaba',
+    color: '#FF6A00',
+    region: 'china',
+    stack: {
+      applications: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Qwen Studio', 'https://chat.qwen.ai/'),
+          p('QwenWork', 'https://www.alizila.com/alibaba-unveils-qwen3-8-max-most-capable-flagship-model-to-date/'),
+          p('Quark', 'https://www.alibabagroup.com/en-US/document-1837325276262957056'),
+        ]
+      },
+      api: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Open weights', 'https://huggingface.co/Qwen'),
+          p('Alibaba Cloud Model Studio', 'https://www.alibabacloud.com/en/product/modelstudio'),
+          p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-qwen.html'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-6'),
+
+        ]
+      },
+      models: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Qwen family', 'https://huggingface.co/Qwen'),
+          p('Wan family', 'https://huggingface.co/Wan-AI'),
+        ]
+      },
+      cloud: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Alibaba Cloud', 'https://www.alibabacloud.com/'),
+        ]
+      },
+      infrastructure: {
+        provider: 'Alibaba Cloud',
+        providerUrl: null,
+        inHouse: true,
+        confidence: 'confirmed',
+        products: [
+          p('Alibaba Cloud Global Infrastructure', 'https://www.alibabacloud.com/en/global-locations'),
+        ]
+      },
+      chips: {
+        provider: 'Alibaba + Huawei + NVIDIA',
+        providerUrl: null,
+        inHouse: false,
+        confidence: 'reported',
+        products: [
+          p('In-house T-Head and Zhenwu chips', 'https://www.cnbc.com/2026/05/19/alibaba-reveals-more-powerful-zhenwu-ai-chip-new-llm.html'),
+          p('Huawei', 'https://www.cnbc.com/2026/03/27/bytedance-alibaba-planning-to-order-huaweis-new-ai-chip-reuters.html'),
+          p('NVIDIA', 'https://www.bloomberg.com/news/articles/2026-07-31/moonshot-s-kimi-built-on-20-000-nvidia-chip-cluster-from-alibaba'),
+        ],
+        dependencies: ['huawei', 'nvidia']
+      },
+    }
+  },
   {
     id: 'deepseek',
     name: 'DeepSeek',
@@ -447,8 +522,11 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
+          p('Open weights (MIT)', 'https://huggingface.co/deepseek-ai'),
           p('DeepSeek API', 'https://platform.deepseek.com/'),
-          p('Open weights', 'https://huggingface.co/deepseek-ai'),
+          p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/deepseek/'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4'),
+          p('Microsoft Azure AI Foundry', 'https://azure.microsoft.com/en-us/blog/deepseek-r1-is-now-available-on-azure-ai-foundry-and-github/'),
         ]
       },
       models: {
@@ -457,102 +535,36 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('DeepSeek-V3 / R1 family', 'https://huggingface.co/deepseek-ai'),
+          p('DeepSeek-V4', 'https://deepseek.ai/deepseek-v4'),
         ]
       },
       cloud: {
-        provider: 'High-Flyer (self-operated)',
+        provider: 'High-Flyer (parent)',
         providerUrl: null,
         inHouse: true,
         confidence: 'reported',
         products: [
-          p('Self-operated clusters (parent: High-Flyer)'),
-        ]
+          p('Self-operated clusters via parent High-Flyer', 'https://www.csis.org/analysis/deepseek-deep-dive'),
+         ]
       },
       infrastructure: {
-        provider: 'High-Flyer (self-operated)',
+        provider: 'High-Flyer (parent)',
         providerUrl: null,
         inHouse: true,
         confidence: 'reported',
         products: [
-          p('Fire-Flyer clusters (reported)'),
+          p('Self-operated clusters via parent High-Flyer', 'https://www.csis.org/analysis/deepseek-deep-dive'),
         ]
       },
       chips: {
-        provider: 'NVIDIA + Huawei (reported)',
-        providerUrl: null,
-        inHouse: false,
-        confidence: 'unknown',
-        products: [
-          p('NVIDIA A100 / H800 (reported, pre-controls stockpile)'),
-          p('Huawei Ascend for inference (reported)'),
-        ],
-        dependencies: ['nvidia', 'huawei']
-      },
-    }
-  },
-  {
-    id: 'alibaba',
-    name: 'Alibaba (Qwen)',
-    color: '#FF6A00',
-    region: 'china',
-    stack: {
-      applications: {
-        provider: 'Alibaba',
-        providerUrl: null,
-        inHouse: true,
-        confidence: 'confirmed',
-        products: [
-          p('Qwen chat', 'https://chat.qwen.ai/'),
-          p('Quark'),
-        ]
-      },
-      api: {
-        provider: 'Alibaba Cloud',
-        providerUrl: null,
-        inHouse: true,
-        confidence: 'confirmed',
-        products: [
-          p('Model Studio (DashScope)', 'https://www.alibabacloud.com/en/product/modelstudio'),
-          p('Open weights', 'https://huggingface.co/Qwen'),
-        ]
-      },
-      models: {
-        provider: 'Alibaba',
-        providerUrl: null,
-        inHouse: true,
-        confidence: 'confirmed',
-        products: [
-          p('Qwen family', 'https://huggingface.co/Qwen'),
-        ]
-      },
-      cloud: {
-        provider: 'Alibaba Cloud',
-        providerUrl: null,
-        inHouse: true,
-        confidence: 'confirmed',
-        products: [
-          p('Alibaba Cloud', 'https://www.alibabacloud.com/'),
-        ]
-      },
-      infrastructure: {
-        provider: 'Alibaba Cloud',
-        providerUrl: null,
-        inHouse: true,
-        confidence: 'confirmed',
-        products: [
-          p('Alibaba Cloud datacenters', 'https://www.alibabacloud.com/en/global-locations'),
-        ]
-      },
-      chips: {
-        provider: 'NVIDIA + Huawei + in-house (reported)',
+        provider: 'Huawei + NVIDIA +  in-house (reported)',
         providerUrl: null,
         inHouse: false,
         confidence: 'reported',
         products: [
-          p('NVIDIA H20 / export-compliant parts (reported)'),
-          p('Huawei Ascend (reported)'),
-          p('T-Head / in-house accelerators (reported)'),
+          p('Huawei', 'https://www.scmp.com/tech/article/3356117/huawei-chips-refine-deepseek-model-major-leap-chinas-ai-self-reliance'),
+          p('NVIDIA', 'https://www.csis.org/analysis/deepseek-deep-dive'),
+          p('In-house inference chip in design', 'https://www.bloomberg.com/news/articles/2026-07-07/chinese-ai-startup-deepseek-developing-own-ai-chip-reuters-says'),
         ],
         dependencies: ['nvidia', 'huawei']
       },
@@ -560,8 +572,8 @@ export const companies = [
   },
   {
     id: 'moonshot',
-    name: 'Moonshot (Kimi)',
-    color: '#5A4FCF',
+    name: 'Moonshot',
+    color: '#1684FE',
     region: 'china',
     stack: {
       applications: {
@@ -579,8 +591,10 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('Moonshot API', 'https://platform.moonshot.ai/'),
           p('Open weights', 'https://huggingface.co/moonshotai'),
+          p('Kimi API', 'https://platform.moonshot.ai/'),
+          p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-moonshot-ai.html'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k3'),
         ]
       },
       models: {
@@ -589,48 +603,49 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('Kimi K2 family', 'https://huggingface.co/moonshotai'),
+          p('Kimi K3', 'https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3'),
         ]
       },
       cloud: {
-        provider: 'Undisclosed public cloud',
+        provider: 'Alibaba Cloud',
         providerUrl: null,
         inHouse: false,
-        confidence: 'unknown',
+        confidence: 'reported',
         products: [
-          p('Undisclosed (Alibaba is an investor; cloud provider not confirmed)'),
-        ]
+          p('Alibaba Cloud', 'https://www.bloomberg.com/news/articles/2026-07-31/moonshot-s-kimi-built-on-20-000-nvidia-chip-cluster-from-alibaba'),
+        ],
+        dependencies: ['alibabacloud']
       },
       infrastructure: {
-        provider: 'Undisclosed',
+        provider: 'Alibaba Cloud',
         providerUrl: null,
         inHouse: false,
-        confidence: 'unknown',
+        confidence: 'reported',
         products: [
-          p('Undisclosed'),
-        ]
+          p('Alibaba Cloud', 'https://www.bloomberg.com/news/articles/2026-07-31/moonshot-s-kimi-built-on-20-000-nvidia-chip-cluster-from-alibaba'),
+        ],
+        dependencies: ['alibabacloud']
       },
       chips: {
-        provider: 'NVIDIA + Huawei (reported)',
+        provider: 'NVIDIA',
         providerUrl: null,
         inHouse: false,
-        confidence: 'unknown',
+        confidence: 'reported',
         products: [
-          p('NVIDIA H800 / H20 (reported)'),
-          p('Huawei Ascend (reported)'),
+          p('NVIDIA', 'https://www.bloomberg.com/news/articles/2026-07-31/moonshot-s-kimi-built-on-20-000-nvidia-chip-cluster-from-alibaba'),
         ],
-        dependencies: ['nvidia', 'huawei']
+        dependencies: ['nvidia']
       },
     }
   },
   {
     id: 'zhipu',
-    name: 'Zhipu (Z.ai)',
-    color: '#3B5BDB',
+    name: 'Z.ai',
+    color: '#363636',
     region: 'china',
     stack: {
       applications: {
-        provider: 'Zhipu AI',
+        provider: 'Z.ai',
         providerUrl: null,
         inHouse: true,
         confidence: 'confirmed',
@@ -639,17 +654,19 @@ export const companies = [
         ]
       },
       api: {
-        provider: 'Zhipu AI',
+        provider: 'Z.ai',
         providerUrl: null,
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('BigModel / Z.ai API', 'https://open.bigmodel.cn/'),
           p('Open weights', 'https://huggingface.co/zai-org'),
+          p('BigModel API', 'https://open.bigmodel.cn/'),
+          p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-qwen.html'),
+          p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-2'),          
         ]
       },
       models: {
-        provider: 'Zhipu AI',
+        provider: 'Z.ai',
         providerUrl: null,
         inHouse: true,
         confidence: 'confirmed',
@@ -658,48 +675,33 @@ export const companies = [
         ]
       },
       cloud: {
-        provider: 'Undisclosed public cloud',
+        provider: 'Z.ai',
         providerUrl: null,
-        inHouse: false,
-        confidence: 'unknown',
+        inHouse: true,
+        confidence: 'reported',
         products: [
-          p('Undisclosed'),
-        ]
+          p('Self-owned compute', 'https://www.tomshardware.com/tech-industry/artificial-intelligence/z-ai-powers-up-1gw-ai-data-center-built-entirely-on-chinese-chips'),
+        ],
       },
       infrastructure: {
-        provider: 'Undisclosed',
+        provider: 'Z.ai',
         providerUrl: null,
-        inHouse: false,
-        confidence: 'unknown',
+        inHouse: true,
+        confidence: 'reported',
         products: [
-          p('Undisclosed'),
-        ]
+          p('Self-owned 1 GW datacenter', 'https://www.tomshardware.com/tech-industry/artificial-intelligence/z-ai-powers-up-1gw-ai-data-center-built-entirely-on-chinese-chips'),
+        ],
       },
       chips: {
-        provider: 'NVIDIA + Huawei (reported)',
+        provider: 'Huawei',
         providerUrl: null,
         inHouse: false,
         confidence: 'reported',
         products: [
-          p('NVIDIA (reported)'),
-          p('Huawei Ascend (reported)'),
+          p('Huawei', 'https://www.infoworld.com/article/4116787/chinese-ai-firm-trains-state-of-the-art-model-entirely-on-huawei-chips.html'),
         ],
-        dependencies: ['nvidia', 'huawei']
+        dependencies: ['huawei']
       },
     }
   },
 ];
-
-// -----------------------------------------------------------------------------
-// HOW TO UPDATE THIS FILE
-// -----------------------------------------------------------------------------
-// 1. Update lastUpdated at the top
-// 2. To add a source URL to a product:
-//      Change: p('Product Name')
-//      To:     p('Product Name', 'https://source-url.com/article')
-// 3. To add a source URL to a provider name:
-//      Add providerUrl: 'https://...' to the layer object
-// 4. To add a new company: copy an existing company object and modify
-// 5. To add a new infrastructure provider: add to infrastructureProviders array
-// 6. Remember: dependencies array must use provider IDs from infrastructureProviders
-// -----------------------------------------------------------------------------

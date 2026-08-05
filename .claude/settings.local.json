@@ -5,7 +5,14 @@
       "Bash(tail:*)",
       "WebFetch(domain:law-ai.org)",
       "WebFetch(domain:ifp.org)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(node -e \"import\\('./src/data.js'\\).then\\(m => { const bad=[]; m.companies.forEach\\(c => Object.entries\\(c.stack\\).forEach\\(\\([k,l]\\) => { \\(l.dependencies||[]\\).forEach\\(d => { if\\(!m.infrastructureProviders.find\\(p=>p.id===d\\)\\) bad.push\\(c.id+'.'+k+' -> '+d\\); }\\); }\\)\\); console.log\\('companies:', m.companies.length\\); console.log\\('providers:', m.infrastructureProviders.length\\); console.log\\('dangling deps:', bad.length? bad.join\\(', '\\):'none'\\); }\\)\")",
+      "Bash(npm run *)",
+      "Bash(node -e \"import\\('./src/data.js'\\).then\\(m => { const bad=[]; m.companies.forEach\\(c => Object.entries\\(c.stack\\).forEach\\(\\([k,l]\\) => { \\(l.dependencies||[]\\).forEach\\(d => { if\\(!m.infrastructureProviders.find\\(p=>p.id===d\\)\\) bad.push\\(c.id+'.'+k+' -> '+d\\); }\\); }\\)\\); const china=m.companies.filter\\(c=>c.region==='china'\\).map\\(c=>c.name\\); console.log\\('total companies:', m.companies.length\\); console.log\\('china labs:', china.join\\(', '\\)\\); console.log\\('dangling deps:', bad.length? bad.join\\(', '\\):'none'\\); }\\)\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Read(//c/Users/yelle/OneDrive/Desktop/projects/ai-stack-project/**)",
+      "Bash(node --check src/data.js)"
     ]
   }
 }

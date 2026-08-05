@@ -147,15 +147,39 @@ const ProviderChip = ({ provider, count, selectedProvider, setSelectedProvider }
 
 // Renders one stack matrix (layers as rows) for a given set of labs.
 // Rendered once per region so each table stays narrow as labs are added.
-const StackTable = ({ title, subtitle, companyList, selectedCompany, setSelectedCompany, getOpacity }) => {
+// The region's Key Dependencies bar sits directly under the header.
+const StackTable = ({ title, subtitle, companyList, providers, providerCount, selectedProvider, setSelectedProvider, headerAction, selectedCompany, setSelectedCompany, getOpacity }) => {
   if (companyList.length === 0) return null;
 
   return (
     <section className="mb-12">
       <div className="mb-4 border-b border-hairline pb-2">
-        <h2 className="font-serif text-xl font-semibold text-ink">{title}</h2>
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="font-serif text-xl font-semibold text-ink">{title}</h2>
+          {headerAction}
+        </div>
         {subtitle && <p className="mt-0.5 text-xs text-muted">{subtitle}</p>}
       </div>
+
+      {providers && providers.length > 0 && (
+        <div className="mb-6">
+          <h3 className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.15em] text-muted">
+            Key Dependencies
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {providers.map(provider => (
+              <ProviderChip
+                key={provider.id}
+                provider={provider}
+                count={providerCount(provider.id)}
+                selectedProvider={selectedProvider}
+                setSelectedProvider={setSelectedProvider}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="overflow-x-auto pb-2">
         <div
           className="grid gap-2 md:gap-3"
@@ -309,7 +333,6 @@ const AIStackVisualization = () => {
                 className="h-9 w-9 md:h-10 md:w-10"
               />
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-                Frontier AI · Compute Supply Chain
               </span>
             </div>
             <ThemeToggle theme={theme} setTheme={setTheme} />
@@ -318,67 +341,29 @@ const AIStackVisualization = () => {
             AI Stack Tracker
           </h1>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
-            An independent map of hardware, infrastructure, and service dependencies — and the
-            degree of vertical integration — across the frontier AI labs.
+            A map of hardware, infrastructure, and service dependencies across American and Chinese frontier AI labs.
           </p>
           <p className="mt-2 text-sm text-faint">
             Select a lab or a provider to trace its dependencies across the stack.
           </p>
         </header>
 
-        {/* Infrastructure Providers, grouped by region */}
-        <div className="mb-10">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-muted">
-              Key Dependencies
-            </h2>
-            {(selectedCompany || selectedProvider) && (
-              <button
-                onClick={clearSelection}
-                className="rounded-md border border-hairline bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:border-accent/40 hover:text-ink active:scale-[0.98]"
-              >
-                Clear selection
-              </button>
-            )}
-          </div>
-
-          <div className="mb-4">
-            <h3 className="mb-2 text-xs font-medium text-faint">U.S. Labs</h3>
-            <div className="flex flex-wrap gap-2">
-              {usProviders.map(provider => (
-                <ProviderChip
-                  key={provider.id}
-                  provider={provider}
-                  count={dependencyCount(provider.id, usCompanies)}
-                  selectedProvider={selectedProvider}
-                  setSelectedProvider={setSelectedProvider}
-                />
-              ))}
-            </div>
-          </div>
-
-          {chinaProviders.length > 0 && (
-            <div>
-              <h3 className="mb-2 text-xs font-medium text-faint">Chinese Labs</h3>
-              <div className="flex flex-wrap gap-2">
-                {chinaProviders.map(provider => (
-                  <ProviderChip
-                    key={provider.id}
-                    provider={provider}
-                    count={dependencyCount(provider.id, chinaCompanies)}
-                    selectedProvider={selectedProvider}
-                    setSelectedProvider={setSelectedProvider}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Stack tables, split by region */}
+        {/* Stack tables, split by region — each with its Key Dependencies bar */}
         <StackTable
-          title="U.S. Labs"
+          title="US Labs"
           companyList={usCompanies}
+          providers={usProviders}
+          providerCount={(id) => dependencyCount(id, usCompanies)}
+          selectedProvider={selectedProvider}
+          setSelectedProvider={setSelectedProvider}
+          headerAction={(selectedCompany || selectedProvider) && (
+            <button
+              onClick={clearSelection}
+              className="rounded-md border border-hairline bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:border-accent/40 hover:text-ink active:scale-[0.98]"
+            >
+              Clear selection
+            </button>
+          )}
           selectedCompany={selectedCompany}
           setSelectedCompany={setSelectedCompany}
           getOpacity={getOpacity}
@@ -387,6 +372,10 @@ const AIStackVisualization = () => {
           title="Chinese Labs"
           subtitle="Lower layers (cloud, datacenters, chips) are harder to source — see confidence markers."
           companyList={chinaCompanies}
+          providers={chinaProviders}
+          providerCount={(id) => dependencyCount(id, chinaCompanies)}
+          selectedProvider={selectedProvider}
+          setSelectedProvider={setSelectedProvider}
           selectedCompany={selectedCompany}
           setSelectedCompany={setSelectedCompany}
           getOpacity={getOpacity}
