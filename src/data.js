@@ -43,7 +43,7 @@ export const infrastructureProviders = [
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
   { id: 'spacexai', name: 'SpaceXAI (cloud)', color: '#000000', type: 'cloud', url: null },
-
+  { id: 'volta', name: 'Volta (cloud)', color: '#0e3f67', type: 'cloud', url: null },
 ];
 
 // -----------------------------------------------------------------------------
@@ -115,7 +115,7 @@ export const companies = [
         ] 
       },
       cloud: {
-        provider: 'Anthropic/Fluidstack + Akamai + Amazon + CoreWeave + Google + Microsoft + SpaceXAI',
+        provider: 'Anthropic/Fluidstack + Akamai + Amazon + CoreWeave + Google + Microsoft + SpaceXAI + Volta',
         providerUrl: null,
         inHouse: false,
         products: [
@@ -126,8 +126,9 @@ export const companies = [
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
           p('Microsoft', 'https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships'),
           p('SpaceXAI', 'https://www.anthropic.com/news/higher-limits-spacex'),
+          p('Volta', 'https://www.bloomberg.com/news/articles/2026-08-04/anthropic-inks-10-billion-computing-deal-with-new-cloud-startup'),
         ],
-        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai']
+        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai', 'volta']
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -140,15 +141,16 @@ export const companies = [
         dependencies: ['amazon', 'fluidstack', 'hut8'] 
       },
       chips: { 
-        provider: 'Amazon + Google(+Broadcom) + NVIDIA', 
+        provider: 'AMD + Amazon + Google(+Broadcom) + NVIDIA', 
         providerUrl: null,
         inHouse: false, 
         products: [
+          p('AMD GPUs', 'https://ir.amd.com/news-events/press-releases/detail/1292/amd-and-anthropic-announce-strategic-partnership-to-deploy-up-to-2-gigawatts-of-amd-instinct-mi450-series-gpus'),
           p('AWS Trainium/Inferentia accelerators', 'https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai'),
           p('Google Cloud TPUs (supplied by Google and Broadcom)', 'https://www.tomshardware.com/tech-industry/broadcom-expands-anthropic-deal-to-3-5gw-of-google-tpu-capacity-from-2027'), 
           p('NVIDIA GPUs', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
         ], 
-        dependencies: ['amazon', 'broadcom', 'google', 'nvidia'] 
+        dependencies: ['amd', 'amazon', 'broadcom', 'google', 'nvidia'] 
       },
     }
   },
@@ -420,7 +422,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false,
         products: [
-          p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus'),
+          p('NVIDIA GPUs', 'https://www.businessinsider.com/elon-musk-spacex-will-only-buy-from-nvidia-2026-8?op=1'),
         ],
         dependencies: ['nvidia']
       },
