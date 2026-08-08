@@ -373,7 +373,7 @@ const AIStackVisualization = () => {
         />
         <StackTable
           title="Chinese Labs"
-          subtitle="Lower layers (cloud, datacenters, chips) are harder to source — see confidence markers."
+          subtitle="Lower layers (cloud, datacenters, chips) are harder to source; see confidence markers."
           companyList={chinaCompanies}
           providers={chinaProviders}
           providerCount={(id) => dependencyCount(id, chinaCompanies)}

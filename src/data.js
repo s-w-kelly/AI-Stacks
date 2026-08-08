@@ -177,7 +177,7 @@ export const companies = [
         products: [
           p('Gemini API', 'https://ai.google.dev/gemini-api/docs'),
           p('Google Cloud Gemini Enterprise Agent Platform', 'https://docs.cloud.google.com/vertex-ai/docs/reference/rest'),
-          p('Open weights (Gemma)', 'https://huggingface.co/collections/google/gemma-3-release'),
+          p('Open weights (Gemma: Apache)', 'https://huggingface.co/collections/google/gemma-3-release'),
         ]
       },
       models: { 
@@ -198,7 +198,7 @@ export const companies = [
         inHouse: true,
         products: [
           p('Google Cloud', 'https://cloud.google.com/'),
-          p('SpaceXAI (bridge compute in xAI datacenters)', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
+          p('SpaceXAI', 'https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html'),
         ],
         dependencies: ['spacexai']
       },
@@ -240,7 +240,7 @@ export const companies = [
         inHouse: true, 
         products: [
           p('Llama API', 'https://llama.developer.meta.com/docs/overview/'), 
-          p('Open weights', 'https://huggingface.co/meta-llama'),
+          p('Open weights (Llama)', 'https://huggingface.co/meta-llama'),
           p('Amazon Bedrock', 'https://aws.amazon.com/bedrock/meta/'), 
           p('Google Cloud Gemini Enterprise Agent Platform', 'https://docs.cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-llama'),
           p('Microsoft Azure AI Foundry', 'https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/models-inference-examples?view=foundry-classic&tabs=llama-three#meta'),
@@ -315,7 +315,7 @@ export const companies = [
         products: [
           p('OpenAI API', 'https://openai.com/api/'), 
           p('Azure OpenAI', 'https://azure.microsoft.com/en-us/products/ai-foundry/models/openai'),
-          p('Open weights (gpt-oss)', 'https://huggingface.co/collections/openai/gpt-oss')
+          p('Open weights (gpt-oss: Apache)', 'https://huggingface.co/collections/openai/gpt-oss')
         ] 
       },
       models: { 
@@ -356,7 +356,7 @@ export const companies = [
         providerUrl: null,
         inHouse: false, 
         products: [
-          p('Jalapeño (Broadcom co-developed)', 'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'),
+          p('In-house Jalapeño accelerator (Broadcom co-developed)', 'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'),
           p('AMD GPUs', 'https://openai.com/index/openai-amd-strategic-partnership/'),
           p('Google Cloud TPUs', 'https://www.reuters.com/business/openai-turns-googles-ai-chips-power-its-products-information-reports-2025-06-27/'), 
           p('NVIDIA GPUs', 'https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems'), 
@@ -414,7 +414,6 @@ export const companies = [
         inHouse: true, 
         products: [
           p('Colossus datacenters', 'https://x.ai/colossus'),
-          p('MACROHARDRR', 'https://apnews.com/article/xai-musk-data-center-mississippi-memphis-433691ace945708a04762b4791602f3d'),
         ]
       },
       chips: {
@@ -454,7 +453,7 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('Open weights', 'https://huggingface.co/Qwen'),
+          p('Open weights (Apache, Qwen)', 'https://huggingface.co/Qwen'),
           p('Alibaba Cloud Model Studio', 'https://www.alibabacloud.com/en/product/modelstudio'),
           p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-qwen.html'),
           p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-6'),
@@ -593,7 +592,7 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('Open weights', 'https://huggingface.co/moonshotai'),
+          p('Open weights (MIT, kimi)', 'https://huggingface.co/moonshotai'),
           p('Kimi API', 'https://platform.moonshot.ai/'),
           p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-moonshot-ai.html'),
           p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k3'),
@@ -661,7 +660,7 @@ export const companies = [
         inHouse: true,
         confidence: 'confirmed',
         products: [
-          p('Open weights', 'https://huggingface.co/zai-org'),
+          p('Open weights (MIT)', 'https://huggingface.co/zai-org'),
           p('BigModel API', 'https://open.bigmodel.cn/'),
           p('Amazon Bedrock', 'https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-qwen.html'),
           p('Google Cloud Gemini Enterprise Agent Platform', 'https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-2'),          
