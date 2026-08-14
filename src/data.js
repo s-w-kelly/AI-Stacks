@@ -5,7 +5,7 @@
 // Last updated: December 2024
 // =============================================================================
 
-export const lastUpdated = "8/4/2026";
+export const lastUpdated = "8/14/2026";
 
 // -----------------------------------------------------------------------------
 // STACK LAYERS
@@ -14,8 +14,8 @@ export const stackLayers = [
   { id: 'applications', name: 'Applications', description: 'Core in-house consumer and enterprise products' },
   { id: 'api', name: 'Model Access and Distribution', description: 'APIs, cloud platforms, weight releases' },
   { id: 'models', name: 'Models', description: 'Foundation models' },
-  { id: 'cloud', name: 'Compute and Cloud Platforms', description: 'Cloud services, access to compute, datacenter ops' },
-  { id: 'infrastructure', name: 'Datacenters', description: 'Owned/controlled infrastructure' },
+  { id: 'cloud', name: 'Leased Compute and Cloud Services', description: 'Cloud services, access to compute, datacenter ops' },
+  { id: 'infrastructure', name: 'Owned/controlled Datacenters', description: 'Owned/controlled infrastructure' },
   { id: 'chips', name: 'Chips', description: 'GPUs, ASICs' },
 ];
 
@@ -42,6 +42,7 @@ export const infrastructureProviders = [
   { id: 'nebius', name: 'Nebius (cloud/datacenters)', color: '#d3f254', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
+  { id: 'riot', name: 'Riot Platforms (cloud)', color: '#ed9840', type: 'cloud', url: null },
   { id: 'spacexai', name: 'SpaceXAI (cloud)', color: '#000000', type: 'cloud', url: null },
   { id: 'volta', name: 'Volta (cloud)', color: '#0e3f67', type: 'cloud', url: null },
 ];
@@ -115,7 +116,7 @@ export const companies = [
         ] 
       },
       cloud: {
-        provider: 'Anthropic/Fluidstack + Akamai + Amazon + CoreWeave + Google + Microsoft + SpaceXAI + Volta',
+        provider: 'Anthropic/Fluidstack + Akamai + Amazon + CoreWeave + Google + Microsoft + Riot Platforms + SpaceXAI + Volta',
         providerUrl: null,
         inHouse: false,
         products: [
@@ -125,10 +126,11 @@ export const companies = [
           p('Fluidstack', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
           p('Microsoft', 'https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships'),
+          p('Riot Platforms', 'https://finance.yahoo.com/technology/ai/articles/anthropic-signs-9-1-billion-113731732.html'),
           p('SpaceXAI', 'https://www.anthropic.com/news/higher-limits-spacex'),
           p('Volta', 'https://www.bloomberg.com/news/articles/2026-08-04/anthropic-inks-10-billion-computing-deal-with-new-cloud-startup'),
         ],
-        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'spacexai', 'volta']
+        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'riot', 'spacexai', 'volta']
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
@@ -136,7 +138,7 @@ export const companies = [
         inHouse: false, 
         products: [
           p('Anthropic datacenters (w/ Fluidstack/Hut 8)', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),         
-          p('Project Rainier (AWS partnership)', 'https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster'),         
+          p('Project Rainier (AWS partnership)', 'https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster'),     p('Theseus Infrastructure (GIC+Macquarie partnership)', 'https://www.datacenterdynamics.com/en/news/gic-and-macquarie-form-theseus-infrastructure-to-serve-anthropics-data-center-needs/'),   
         ], 
         dependencies: ['amazon', 'fluidstack', 'hut8'] 
       },
