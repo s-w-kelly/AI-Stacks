@@ -40,6 +40,7 @@ export const infrastructureProviders = [
   { id: 'hut8', name: 'Hut 8 (datacenters)', color: '#bcbfb0', type: 'cloud', url: null },
   { id: 'microsoft', name: 'Microsoft (Azure cloud/datacenters, Maia chips)', color: '#3CCBF4', type: 'cloud', url: null },
   { id: 'nebius', name: 'Nebius (cloud/datacenters)', color: '#d3f254', type: 'cloud', url: null },
+  { id: 'nscale', name: 'Nscale (cloud)', color: '#0f41f3', type: 'cloud', url: null },
   { id: 'nvidia', name: 'NVIDIA (GPUs)', color: '#76B900', type: 'chips', url: null },
   { id: 'oracle', name: 'Oracle (OCI cloud)', color: '#C74634', type: 'cloud', url: null },
   { id: 'riot', name: 'Riot Platforms (cloud)', color: '#ed9840', type: 'cloud', url: null },
@@ -126,11 +127,12 @@ export const companies = [
           p('Fluidstack', 'https://www.prnewswire.com/news-releases/hut-8-announces-ai-infrastructure-partnership-with-anthropic-and-fluidstack-302644377.html'),
           p('Google Cloud', 'https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services'),
           p('Microsoft', 'https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships'),
+          p('Nscale', 'https://www.cnbc.com/2026/08/26/anthropic-and-nscale-strike-45-billion-cloud-deal-sources-say.html'),
           p('Riot Platforms', 'https://finance.yahoo.com/technology/ai/articles/anthropic-signs-9-1-billion-113731732.html'),
           p('SpaceXAI', 'https://www.anthropic.com/news/higher-limits-spacex'),
           p('Volta', 'https://www.bloomberg.com/news/articles/2026-08-04/anthropic-inks-10-billion-computing-deal-with-new-cloud-startup'),
         ],
-        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'riot', 'spacexai', 'volta']
+        dependencies: ['akamai', 'amazon', 'coreweave', 'fluidstack', 'google', 'microsoft', 'nscale', 'riot', 'spacexai', 'volta']
       },
       infrastructure: { 
         provider: 'Anthropic/Fluidstack/Hut 8 + Amazon',
